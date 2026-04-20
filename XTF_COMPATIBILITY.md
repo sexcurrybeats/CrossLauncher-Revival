@@ -29,6 +29,17 @@ New exports no longer include per-app or per-game icon/backdrop media.
 
 That means exported XTF packages are now focused on the main shell identity and launcher state rather than acting like a full per-app media backup.
 
+## Making and sharing a theme
+
+The normal theme-sharing flow is:
+
+- configure your shell the way you want in Settings
+- set up your shell-level icons, menu sounds, wave settings, coldboot, gameboot, and related customization
+- export an XTF package from the launcher
+- share that `.xtf` file with other users
+
+On the receiving side, another user can import that XTF package through the launcher to apply the shared shell setup on a compatible build.
+
 ## Compatibility boundaries
 
 - XTF is intended for compatible CrossLauncher builds, not as a general Android backup format

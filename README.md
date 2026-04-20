@@ -87,6 +87,17 @@ Current XTF support includes:
 
 New XTF exports are focused on shell-level customization. They do not export per-app or per-game icon/backdrop media.
 
+### Making and sharing a theme
+
+If you want to make a theme pack for other people to use:
+
+- set your shell up the way you want from Settings
+- customize the shell icons, menu sounds, wave settings, coldboot, gameboot, and other shell-level options you want included
+- export an XTF package from the launcher
+- share that `.xtf` file with other CrossLauncher users so they can import it on compatible builds
+
+That makes XTF the normal way to move a shell setup between devices or share a theme with other users.
+
 See:
 
 - [XTF compatibility](./XTF_COMPATIBILITY.md)
