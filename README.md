@@ -22,6 +22,12 @@ This project is not trying to be a generic phone homescreen.
 - If you want to build it yourself, see [Build from source](#build-from-source)
 - This launcher is meant to replace the default home app on controller-first devices, not to sit on top of a touch-first phone workflow
 
+## Setup notes
+
+- If media-based features are missing files or not behaving correctly, go to `Settings -> Media Settings -> Media Access` and grant media access.
+- XTF import uses Android's document picker, but media access is still recommended for other media-backed launcher features.
+- If you want to use your own wallpaper or live wallpaper behind the shell, go to `Settings -> Wave Wallpaper Settings` and turn off `Use as Internal Layer`.
+
 ## Tested on
 
 - Retroid Pocket 5

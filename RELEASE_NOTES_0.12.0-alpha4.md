@@ -24,6 +24,12 @@ This prerelease is focused on readability and visual polish in the handheld shel
   - gameboot
   - battery glyph
 
+## Setup notes
+
+- If media-based features are missing files or not behaving correctly, grant access at `Settings -> Media Settings -> Media Access`.
+- XTF import itself uses Android's document picker, but media access is still recommended for other media-backed launcher features.
+- If you want your own wallpaper or live wallpaper behind the shell, disable `Use as Internal Layer` in `Settings -> Wave Wallpaper Settings`.
+
 ## Known limitations
 
 - on a fresh install, Android may ask which launcher should handle the Home action until CrossLauncher is set as the default launcher
