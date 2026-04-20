@@ -12,6 +12,7 @@ import id.psw.vshlauncher.types.items.XmbMenuItem
 import id.psw.vshlauncher.types.items.XmbNodeItem
 import id.psw.vshlauncher.types.items.XmbSettingsCategory
 import id.psw.vshlauncher.types.items.XmbSettingsItem
+import id.psw.vshlauncher.views.widgets.XmbSideMenu
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -605,7 +606,7 @@ class ThemeSettings(private val vsh: Vsh) : ISettingsCategories(vsh) {
                     vsh.postNotification(R.drawable.category_setting, vsh.getString(R.string.common_success), vsh.getString(R.string.settings_system_clear_cache_success))
                 })
 
-                vsh.xmbView?.widgets?.sideMenu?.show(menuItems)
+                vsh.xmbView?.widgets?.sideMenu?.show(menuItems, XmbSideMenu.PanelWidthMode.Wide)
             }
         )
     }

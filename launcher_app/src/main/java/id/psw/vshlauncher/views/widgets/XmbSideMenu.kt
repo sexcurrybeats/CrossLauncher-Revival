@@ -42,6 +42,12 @@ class XmbSideMenu(view: XmbView) : XmbWidget(view) {
         }
     }
 
+    enum class PanelWidthMode
+    {
+        Auto,
+        Wide
+    }
+
     var showMenuDisplayFactor = 0.0f
     var isDisplayed = false
         set(value) {
@@ -63,6 +69,7 @@ class XmbSideMenu(view: XmbView) : XmbWidget(view) {
     private var orderedItemsSource: ArrayList<XmbMenuItem>? = null
     private var orderedItemsSize = -1
     private var orderedItems: List<XmbMenuItem>? = null
+    private var panelWidthMode = PanelWidthMode.Auto
 
     var interactionMode : TouchInteractMode
         get()
@@ -76,9 +83,10 @@ class XmbSideMenu(view: XmbView) : XmbWidget(view) {
             vsh.M.pref.set(PrefEntry.SIDEMENU_TOUCH_INTERACTION_MODE, value.toInt())
         }
 
-    fun show(items : ArrayList<XmbMenuItem>){
+    fun show(items : ArrayList<XmbMenuItem>, widthMode: PanelWidthMode = PanelWidthMode.Auto){
         this.items.clear()
         this.items.addAll(items)
+        panelWidthMode = widthMode
         invalidateOrderedItems()
         selectedIndex = items.minByOrNull { it.displayOrder }?.displayOrder ?: 0
         isDisplayed = true
@@ -86,12 +94,14 @@ class XmbSideMenu(view: XmbView) : XmbWidget(view) {
 
     fun show(){
         this.items.clear()
+        panelWidthMode = PanelWidthMode.Auto
         invalidateOrderedItems()
         isDisplayed = true
     }
 
     fun hide(){
         this.items.clear()
+        panelWidthMode = PanelWidthMode.Auto
         invalidateOrderedItems()
         isDisplayed = false
     }
@@ -139,6 +149,27 @@ class XmbSideMenu(view: XmbView) : XmbWidget(view) {
 
     private val iconRectF = RectF(-12.0f, -12.0f, 12.0f, 12.0f)
     private val selectedItemRectF = RectF()
+    private var currentPanelWidth = 400.0f
+
+    private fun computePanelWidth(items: List<XmbMenuItem>, isPSP: Boolean): Float {
+        val isWide = panelWidthMode == PanelWidthMode.Wide
+        val baseWidth = when {
+            isWide && isPSP -> 760.0f
+            isWide -> 620.0f
+            isPSP -> 400.0f
+            else -> 320.0f
+        }
+        val maxWidth = when {
+            isWide && isPSP -> (scaling.target.width() * 0.92f).coerceAtMost(1120.0f)
+            isWide -> (scaling.target.width() * 0.78f).coerceAtMost(860.0f)
+            isPSP -> (scaling.target.width() * 0.78f).coerceAtMost(860.0f)
+            else -> (scaling.target.width() * 0.62f).coerceAtMost(640.0f)
+        }
+        val leftInset = isPSP.select(20.0f, textPaint.textSize + 20.0f)
+        val widestItem = items.maxOfOrNull { textPaint.measureText(it.displayName) } ?: 0.0f
+        val rightPadding = isWide.select(96.0f, 56.0f)
+        return (leftInset + widestItem + rightPadding).coerceIn(baseWidth, maxWidth)
+    }
 
 
 
@@ -150,14 +181,18 @@ class XmbSideMenu(view: XmbView) : XmbWidget(view) {
         val isPSP = view.screens.mainMenu.layoutMode == XmbLayoutType.PSP
         textPaint.textSize = isPSP.select(30.0f, 20.0f)
 
-        val menuLeft = showMenuDisplayFactor.toLerp(scaling.viewport.right + 10.0f, scaling.target.right - 400f)
-
         val items = orderedMenuItems()
         val itemCount = items?.size ?: 0
         if (items == null || itemCount == 0) {
             isDisplayed = false
             return
         }
+
+        currentPanelWidth = computePanelWidth(items, isPSP)
+        val menuLeft = showMenuDisplayFactor.toLerp(
+            scaling.viewport.right + 10.0f,
+            scaling.target.right - currentPanelWidth
+        )
 
         itemMenuRectF.set(
             menuLeft,
@@ -246,7 +281,7 @@ class XmbSideMenu(view: XmbView) : XmbWidget(view) {
         if (!view.screens.mainMenu.arrowBitmapLoaded) return
         val bmp = view.screens.mainMenu.arrowBitmap
         val yPosOffset = sin((view.time.currentTime * 3.0f) % (Math.PI.toFloat() * 42.0f)) * 5.0f
-        val xCenter = menuRect.left + 200.0f - 12.0f
+        val xCenter = menuRect.centerX() - 12.0f
         val yPos = if (isUp) menuRect.top + 100.0f + yPosOffset else menuRect.bottom - 100.0f - yPosOffset
         val rotation = if (isUp) 90.0f else -90.0f
 
@@ -323,7 +358,7 @@ class XmbSideMenu(view: XmbView) : XmbWidget(view) {
                 if(interactionMode == TouchInteractMode.Tap)
                 {
                     // Is Up
-                    if(current.x < scaling.target.right - 400.0f){
+                    if(current.x < itemMenuRectF.left){
                         widgets.sideMenu.isDisplayed = false
                     }else{
                         if(current.y < 200.0f){
@@ -359,7 +394,7 @@ class XmbSideMenu(view: XmbView) : XmbWidget(view) {
                     val len = (current - start).length()
                     if(!_hasCursorMoved && len < 5.0f)
                     {
-                        if(current.x < scaling.target.right - 400.0f)
+                        if(current.x < itemMenuRectF.left)
                         {
                             widgets.sideMenu.isDisplayed = false
                         }

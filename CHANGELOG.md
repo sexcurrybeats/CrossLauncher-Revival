@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.12.0-alpha3 prerelease
+
+### Highlights
+
+- widened the shell icon customization picker so long node and settings paths can be read before selecting them
+- shell icon path browsing now uses a wide menu layout without making normal triangle menus oversized
+
+### Theme customization
+
+- `Customize Shell Icons` now opens in a wider side menu mode
+- deep `Node` and `Settings` icon targets are easier to read and browse
+- the shell icon picker remains the only menu using the expanded width, so normal app and context menus stay compact
+
 ## 0.12.0-alpha2 prerelease
 
 ### Highlights
