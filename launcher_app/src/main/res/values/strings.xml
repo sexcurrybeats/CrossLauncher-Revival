@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">Cross Launcher</string>
+    <string name="app_desc">A controller-first shell-style launcher for Android handhelds and TV devices</string>
+    <string name="locale_lang_display_name">English (Default)</string>
+    <string name="orient_unknown">Unknown Orientation</string>
+    <string name="orient_landscape">Landscape</string>
+    <string name="orient_portrait">Portrait</string>
+    <string name="orient_user">System Default</string>
+    <string name="item_orientation">Screen Orientation</string>
+    <string name="first_run_instruction_title">First Run</string>
+    <string name="first_run_instruction_content">
+    Since this is your first run, this is how you can interact with this launcher
+    \n
+    \n Touch :
+    \n- Executing Item : Tap the icon of the item
+    \n- Changing between Categories : Swipe left or right
+    \n- Changing between Items : Swipe up or down
+    \n- Show / Hide Item Options : Two-fingers tap anywhere
+    \n- Re-reveal the Menu : Tap anywhere on screen
+    \n
+    \n Keyboard / TV Remote :
+    \n- Executing Item : Enter / OK Button
+    \n- Changing between Categories : Arrow Left and Right
+    \n- Changing between Items : Arrow Up and Down
+    \n- Show / Hide Item Options : Tab Button / Menu Button (Right side of Spacebar)
+    \n- Re-reveal the Menu : Enter
+    \n- Jump to item by first letter : Any alphanumeric key
+    \n
+    \n Diamond-Button Controller:
+    \n- Executing Item : Cross / Circle Button (Depending on setting)
+    \n- Changing between Categories : D-Pad Left and Right
+    \n- Changing between Items : D-Pad Up and Down
+    \n- Show / Hide Item Options : Triangle Button
+    \n- Re-reveal the Menu : Start
+    \n
+    \n Xbox Controller:
+    \n- Executing Item : A / B Button (Depending on setting)
+    \n- Changing between Categories : D-Pad Left and Right
+    \n- Changing between Items : D-Pad Up and Down
+    \n- Show / Hide Item Options : Y Button
+    \n- Re-reveal the Menu : Menu
+    \n
+    \n If "Mimic Non-Asian Console" option is active, diamond-button and Xbox-style controllers
+    \n will use Cross / A Button to as confirm, otherwise it will use Circle / B Button
+  </string>
+    <string name="storage_permission_not_granted">Storage permission is not granted, players may not usable</string>
+    <string name="setting_show_gameboot_name">Enable Gameboot</string>
+    <string name="setting_mimic_dynamic_theme">Show Dynamic Theme Twinkles</string>
+    <string name="setting_gameboot_custom_guide">Brand Logo customization guide</string>
+    <string name="setting_coldboot_custom_guide">Launcher Startup Logo customization guide</string>
+    <string name="click_here">Click here</string>
+    <string name="app_not_installed">App is not installed</string>
+    <string name="audioplayer_pause">Pause</string>
+    <string name="audioplayer_resume">Resume</string>
+    <string name="audioplayer_stop">Stop</string>
+    <string name="unknown"><![CDATA[<Unknown>]]></string>
+    <string name="category_home">Home</string>
+    <string name="category_apps">Apps</string>
+    <string name="category_games">Game</string>
+    <string name="category_videos">Video</string>
+    <string name="category_music">Music</string>
+    <string name="category_network">Network</string>
+    <string name="category_psn">Network Services</string>
+    <string name="category_settings">Settings</string>
+    <string name="videoplayer_pause">Pause</string>
+    <string name="videoplayer_stop">Stop</string>
+    <string name="videoplayer_play">Play</string>
+    <string name="videoplayer_bwd">Backward</string>
+    <string name="videoplayer_fwd">Forward</string>
+    <string name="videoplayer_switchar">Zoom</string>
+    <string name="videoplayer_viewsetting">Display Setting</string>
+    <string name="videoplayer_volume">Volume</string>
+    <string name="videoplayer_switchdisplay">Display</string>
+    <string name="videoplayer_delete">Delete</string>
+    <string name="videoplayer_setthumbnail">Set as Preview Start</string>
+    <string name="common_yes">Yes</string>
+    <string name="common_no">No</string>
+    <string name="common_memory_stick">Memory Stick™</string>
+    <string name="common_internal_storage">Internal Storage</string>
+    <string name="common_system_storage">System Storage</string>
+    <string name="common_digital_camera">Digital Camera</string>
+    <string name="common_browser">Internet Browser</string>
+    <string name="common_search">Internet Search</string>
+    <string name="common_online_instruction_manuals">Online Instruction Manuals</string>
+    <string name="common_remote_play">Remote Play</string>
+    <string name="common_internet_radio">Internet Radio</string>
+    <string name="common_rss_channel">RSS Channel</string>
+    <string name="common_saved_data">Saved Data Utility</string>
+    <string name="common_recent_games">Recent Games</string>
+    <string name="common_whats_new">What\'s New</string>
+    <string name="common_account_management">Account Management</string>
+    <string name="common_playstation_store">Store</string>
+    <string name="common_hide">Hide</string>
+    <string name="common_show">Show</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_hidden">Hidden</string>
+    <string name="common_visible">Visible</string>
+    <string name="category_game_android">Android Games</string>
+    <string name="menu_rebuild_db">Refresh App Library</string>
+    <string name="common_click_here">Click here</string>
+    <string name="menu_rebuild_db_desc">If new item is not added automatically.</string>
+    <string name="common_corrupted">Corrupted data</string>
+    <string name="audio_corrupted">Audio data is corrupted</string>
+    <string name="app_hide_menu">Hide Menu</string>
+    <string name="app_hide_menu_desc">Tap anywhere to reveal menu once it\'s hidden</string>
+    <string name="xmb_wave_livewp_desc">Wave Live Wallpaper</string>
+    <string name="xmb_icon_desc_root">This icon shouldn\'t be visible</string>
+    <string name="unknown_symbols" translatable="false">\???</string>
+    <string name="app_name_wave">Wave Wallpaper</string>
+    <string name="app_launch">Launch</string>
+    <string name="app_enable_gameboot">Enable Gameboot</string>
+    <string name="app_disable_gameboot">Disable Gameboot</string>
+    <string name="app_find_on_playstore">Find on Play Store</string>
+    <string name="view_app_info">Application Details</string>
+    <string name="app_show_details">Details</string>
+    <string name="common_back">Back</string>
+    <string name="app_open_data_dir">Open Data Directory</string>
+    <string name="app_open_mod_dir">Open Customization Dir</string>
+    <string name="app_open_obb_dir">Open OBB Directory</string>
+    <string name="app_uninstall">Uninstall</string>
+    <string name="app_info_system_activity">Open in Settings</string>
+    <string name="title_activity_wave_wallpaper_setting">Wave Wallpaper Settings</string>
+    <string name="waveset_category_behavior">Wave Behaviour</string>
+    <string name="waveset_category_color">Wave Colors</string>
+    <string name="waveset_behavior_style">Wave Style</string>
+    <string name="waveset_behavior_speed">Wave Speed</string>
+    <string name="waveset_color_back_top">Background Top</string>
+    <string name="waveset_color_back_bottom">Background Bottom</string>
+    <string name="waveset_color_fore_top">Wave Edge</string>
+    <string name="waveset_color_fore_bottom">Wave Center</string>
+    <string name="plugin_name_musiclist">Music List (Internal)</string>
+    <string name="plugin_desc_musiclist">Lists all music in device via Android MediaStore</string>
+    <string name="error_common_header">Error</string>
+    <string name="error_category_launch">No … You shouldn\'t launch this item</string>
+    <string name="nettype_ethernet">Ethernet</string>
+    <string name="nettype_no_connection">No Internet</string>
+    <string name="nettype_wifi">Wi-Fi</string>
+    <string name="category_is_empty">Category empty</string>
+    <string name="empty_music">There are no tracks.</string>
+    <string name="empty_video">There are no videos.</string>
+    <string name="empty_photo">There are no images.</string>
+    <string name="empty_music_hint">Add music to your device to see it here.</string>
+    <string name="empty_video_hint">Add videos to your device to see them here.</string>
+    <string name="empty_photo_hint">Add photos to your device to see them here.</string>
+    <string name="empty_game">There are no games.</string>
+    <string name="empty_psn">No new information is available.</string>
+    <string name="settings_category_display_desc">Adjust settings for rendering system</string>
+    <string name="app_refresh_due_to_uninstall">App uninstalled, refreshing app list…</string>
+    <string name="error_no_appmarket_title">Umm… Play Store?</string>
+    <string name="error_no_appmarket_description">Cannot find \"market:\" URL handler, Do your device have any App Market installed? e.g Google Play Store</string>
+    <string name="bre_name">Broadcast Receiver</string>
+    <string name="perm_install_shortcut_label">Install Shortcut</string>
+    <string name="sdk_widget_shortcut_not_supported">Shortcut is only supported from Android O and later</string>
+    <string name="default_dialog_title">Dialog</string>
+    <string name="setting_display_layout_type">Shell Layout</string>
+    <string name="setting_display_layout_type_desc">Choose the navigation and body style used by the launcher</string>
+    <string name="settings_category_debug_name" translatable="false">★ Debug Settings</string>
+    <string name="setting_systeminfo_name">System Information</string>
+    <string name="setting_systeminfo_desc">View device and launcher details</string>
+    <string name="settings_category_debug_desc" translatable="false">" "</string>
+    <string name="string_systeminfo_androidver_name">Android Version</string>
+    <string name="empty_string" translatable="false">" "</string>
+    <string name="settings_category_system_name">System Settings</string>
+    <string name="settings_category_system_desc">Adjust launcher settings</string>
+    <string name="settings_display_show_operator_name">Show Network Name</string>
+    <string name="settings_display_show_operator_desc">Show currently connected network name, it can be Ethernet, Wi-Fi or Mobile Data</string>
+    <string name="settings_display_clock_second_analog_name">Second on Analog Clock</string>
+    <string name="settings_display_clock_second_analog_desc">Show the hand for second to on the analog clock</string>
+    <string name="string_systeminfo_androidmdl_name">Device Model</string>
+    <string name="settings_system_show_fps_name">Show FPS</string>
+    <string name="settings_system_show_fps_desc">Show rendering performance of the launcher</string>
+    <string name="settings_system_show_debug_settings_name">Show Debug Settings</string>
+    <string name="settings_system_show_debug_settings_desc">Show the hidden development/debug settings entry</string>
+    <string name="settings_system_show_debug_settings_enabled">Debug Settings is now visible</string>
+    <string name="settings_system_show_debug_settings_disabled">Debug Settings is now hidden</string>
+    <string name="app_create_customization_folder">Create Customization Folder</string>
+    <string name="app_customization_file_created">Customization Directory Created</string>
+    <string name="app_sorting_name">By Name</string>
+    <string name="app_sorting_updtime">By Update Time</string>
+    <string name="app_sorting_filesize">By APK File Size</string>
+    <string name="app_sorting_actname">By Package Name</string>
+    <string name="app_category_switch_sort">Change Sort Order</string>
+    <string name="app_customize_menu">Customize</string>
+    <string name="app_manage_menu">Manage App</string>
+    <string name="screen_portrait_warning_desc">Portrait screen may cause bad rendering performance on lower device and high RAM usage due to more icon is visible on-screen at the same time. In case it happens, you can enforce the launcher orientation to landscape.</string>
+    <string name="no_hwaccel_warning_title">No Hardware Acceleration</string>
+    <string name="settings_system_language">Launcher Display Language</string>
+    <string name="settings_system_language_description">Display language of the Launcher</string>
+    <string name="photoepilepsy_warning">
+        PHOTOSENSITIVE EPILEPSY
+        \nIF YOU HAVE A HISTORY OF EPILEPSY OR SEIZURES, CONSULT A DOCTOR BEFORE USE, CERTAIN PATTERN MAY TRIGGER SEIZURES WITH NO PRIOR HISTORY, BEFORE USING THIS LAUNCHER, CAREFULLY READ THE INSTRUCTION MANUAL HOSTED AT GITHUB.
+        \n
+        \nTHIS APP IS NOT AN EMULATOR!
+        \nTHIS APP IS A SHELL-STYLE LAUNCHER, NOT A GAME CONSOLE EMULATOR. IF YOU INSTALLED IT EXPECTING AN EMULATOR, YOU CAN UNINSTALL IT.
+        \n
+        \nTHIS WARNING CAN BE DISABLED FROM SYSTEM MENU
+    </string>
+    <string name="settings_system_hide_boot_warning">Hide Photosensitive Warning</string>
+    <string name="settings_system_asian_console_name">Circle Button Behaviour</string>
+    <string name="settings_system_asian_console_desc">What the Circle Button (B on Xbox, A on Nintendo) do on system</string>
+    <string name="settings_system_asian_console_true">Confirm</string>
+    <string name="settings_system_asian_console_false">Cancel</string>
+    <string name="font_load_failed">An error occurred during custom font loading : %s</string>
+    <string name="settings_category_display_name">Display Settings</string>
+    <string name="perm_install_shortcut_desc">Install static shortcuts to Cross Launcher</string>
+    <string name="screen_portrait_warning_title">Screen is in Portrait Orientation</string>
+    <string name="no_hwaccel_warning_desc">View is not hardware accelerated, rendering performance might be slower. On some device, you can enforce HW acceleration via Developer Option, either for a specific app or system-wide.</string>
+    <string name="setting_android_name">Android System Settings</string>
+    <string name="setting_android_desc">Shortcuts to Android Settings</string>
+    <string name="android_sys_network_name"><![CDATA[Network & Internet]]></string>
+    <string name="android_sys_network_desc">Wi-Fi, mobile, data usage, and hotspot</string>
+    <string name="android_sys_devices_name">Connected devices</string>
+    <string name="android_sys_devices_desc">Bluetooth, USB</string>
+    <string name="android_sys_apps_name"><![CDATA[Apps & notifications]]></string>
+    <string name="android_sys_apps_desc">Recent apps, default apps</string>
+    <string name="android_sys_all_apps_name">All Applications</string>
+    <string name="android_sys_all_apps_desc">See all apps</string>
+    <string name="android_sys_notification_name">Notifications access</string>
+    <string name="android_sys_notification_desc">Adjust notification access for all apps</string>
+    <string name="android_sys_default_apps_name">Default apps</string>
+    <string name="android_sys_default_apps_desc">Browser, Media, Phone and Messages</string>
+    <string name="android_sys_setting_homepage_name">Settings home</string>
+    <string name="android_sys_setting_homepage_desc">Launch homepage settings</string>
+    <string name="android_sys_nodisturb_name">Do not disturb</string>
+    <string name="android_sys_nodisturb_desc">Change apps that can notify even when do not disturb is active</string>
+    <string name="android_sys_battery_name">Battery</string>
+    <string name="android_sys_battery_desc">Battery usages, battery saver settings</string>
+    <string name="android_sys_display_name">Display</string>
+    <string name="android_sys_display_desc">Wallpaper, sleep, font size</string>
+    <string name="android_sys_wallpaper_name"><![CDATA[Wallpaper & style]]></string>
+    <string name="android_sys_wallpaper_desc">Wallpaper, lock screen</string>
+    <string name="android_sys_sound_name">Sound</string>
+    <string name="android_sys_sound_desc">Volume, vibration, Do Not Disturb</string>
+    <string name="android_sys_storage_name">Storage</string>
+    <string name="android_sys_storage_desc">Free space, storage device info</string>
+    <string name="android_sys_privacy_name">Privacy</string>
+    <string name="android_sys_privacy_desc">Permission, account activity, personal data</string>
+    <string name="android_sys_location_name">Location</string>
+    <string name="android_sys_location_desc">Show apps having location access</string>
+    <string name="android_sys_security_name">Security</string>
+    <string name="android_sys_security_desc">Screen lock, fingerprint</string>
+    <string name="android_sys_accessibility_name">Accessibility</string>
+    <string name="android_sys_accessibility_desc">Screen readers, display, interaction controls</string>
+    <string name="android_sys_systeminfo_name">System</string>
+    <string name="android_sys_systeminfo_desc">Languages, gestures, time, backup</string>
+    <string name="android_sys_locale_name"><![CDATA[Language & input]]></string>
+    <string name="android_sys_locale_desc">Display language, number formatting, input system</string>
+    <string name="android_sys_datetime_desc">Date, time, time zone</string>
+    <string name="android_sys_developer_name">Developer options</string>
+    <string name="android_sys_developer_desc">Developer settings, graphics tweaks</string>
+    <string name="android_sys_deviceinfo_name">About device</string>
+    <string name="android_sys_deviceinfo_desc">Android version, IP address, IMEI</string>
+    <string name="install_shortcut_dialog_title">Install Shortcut</string>
+    <string name="dbg_launch_dialog_test" translatable="false">Launch Test Dialog View</string>
+    <string name="common_install">Install</string>
+    <string name="app_force_kill">Force Stop</string>
+    <string name="force_kill_sent_desc">Sent force stop request to Android System : %s</string>
+    <string name="force_kill_sent_title">App forced stop</string>
+    <string name="android_sys_datetime_name"><![CDATA[Date & time]]></string>
+    <string name="settings_system_test_option_name">Activate Cross Launcher</string>
+    <string name="settings_system_test_option_desc">Activate Cross Launcher until launcher next restart</string>
+    <string name="settings_system_test_option_value_on">Activated</string>
+    <string name="settings_system_test_option_value_off">Activate</string>
+    <string name="settings_system_test_display_title">Activate Cross Launcher</string>
+    <string name="settings_system_test_display_desc">Go to Settings to active Cross Launcher</string>
+    <string name="error_fail_to_find_at_market_title">Failed to launch App Market</string>
+    <string name="error_fail_to_find_at_market_desc" >An error occurred when launching App Market</string>
+    <string name="settings_system_disable_splash_message_title">Disable Boot Message</string>
+    <string name="settings_system_disable_splash_message_desc">That epilepsy and seizure message at cold boot screen</string>
+    <string name="settings_category_audio_name">Audio Settings</string>
+    <string name="settings_category_audio_title">Audio playback and volume</string>
+    <string name="settings_system_disable_video_icon_name">Disable Video Icon</string>
+    <string name="settings_system_disable_video_icon_desc">Disables launcher from loading and playing a video icon</string>
+    <string name="settings_wave_set_name" >Set as Wallpaper</string>
+    <string name="settings_wave_set_desc">Open settings to set the Wave Wallpaper as the current wallpaper</string>
+    <string name="settings_wave_make_internal_name">Use as Internal Layer</string>
+    <string name="setting_wave_make_internal_desc">Use the wave in the launcher itself, for devices without direct Live Wallpaper support.</string>
+    <string name="waveset_behavior_style_ps3_classic">Standard</string>
+    <string name="waveset_behavior_style_ps3_dynamic" >Shimmer</string>
+    <string name="waveset_behavior_style_psp_centered">Centered</string>
+    <string name="waveset_behavior_style_psp_classic">Low Horizon</string>
+    <string name="dlg_set_wallpaper_title">Set Wallpaper</string>
+    <string name="dbg_launch_dialog_ui_test" translatable="false">Launch UI Test Dialog</string>
+    <string name="common_next">Next</string>
+    <string name="common_finish">Finish</string>
+    <string name="settings_wave_theme_name">Wave Theme</string>
+    <string name="settings_wave_theme_desc">Adjust style, speed and color of the wave</string>
+    <string name="home_screen_exit_name">Exit</string>
+    <string name="home_screen_exit_desc">Exit to default launcher</string>
+    <string name="waveset_color_foreground">Custom Wave Color</string>
+    <string name="waveset_color_background">Custom Background Color</string>
+    <string name="string_systeminfo_launcher_ver">CrossLauncher Version</string>
+    <string name="settings_wave_apply_as_layer_dlg_text_main">Changing the usage of Internal Wave Layer requires the launcher to be rebooted. Would you like to change the value and reboot launcher?</string>
+  <string name="common_reboot">Reboot</string>
+  <string name="settings_common_settings_unavailable">Setting unavailable</string>
+  <string name="settings_wave_live_wallpaper_unsupported">This device probably didn\'t support live wallpaper</string>
+  <string name="common_reboot_required">Reboot Required</string>
+    <string name="waveset_daynight_cycle">Day/Night Cycle</string>
+  <string name="waveset_bg_month_number">Background Color</string>
+  <string name="waveset_bg_preset_name">Background Preset</string>
+  <string name="waveset_bg_preset_desc">Use a built-in gradient background</string>
+  <string name="waveset_bg_month_custom">Custom</string>
+  <string name="waveset_bg_month_current">Current Month</string>
+    <string name="waveset_bg_is_not_custom">Bg Not Custom!</string>
+    <string name="waveset_test_press_right">Press {right}</string>
+    <string name="waveset_test_swipe_right">Swipe Right</string>
+  <string name="waveset_wave_not_active">Wave Wallpaper is not currently active, Preview will not available.</string>
+  <string name="waveset_dlg_touchscreen_usage">Touch screen : Use Swipe to change values, items and pages</string>
+    <string name="waveset_dlg_page_number">Page %1$d/%2$d</string>
+  <string name="waveset_dlg_test_to_wave">Test to Wave</string>
+    <string name="home_screen_reboot_desc">Restart launcher app entirely</string>
+    <string name="reboot_dlg_confirm_content">Reboot the launcher?</string>
+  <string name="reboot_dlg_confirm_title">Reboot</string>
+    <string name="common_not_supported">Not Supported</string>
+    <string name="string_systeminfo_hardware">Device Hardware</string>
+  <string name="string_systeminfo_board">Device Board</string>
+    <string name="string_systeminfo_android_security_patch">Security Patch</string>
+  <string name="settings_systeminfo_opengles_ver">OpenGL ES Version</string>
+  <string name="settings_systeminfo_vulkan_ver">Vulkan Version</string>
+  <string name="settings_systeminfo_bootloader">Bootloader</string>
+  <string name="settings_systeminfo_storage_usage">Free Space</string>
+  <string name="settings_systeminfo_ram_usage">Free Memory</string>
+    <string name="setting_display_button_type_name">Display Button Type</string>
+  <string name="setting_display_button_type_desc">Which console button to display on-screen</string>
+    <string name="common_default">Default</string>
+    <string name="settings_display_background_dim_name">Background Dim</string>
+  <string name="settings_display_background_dim_desc">Dimming level of the menu underlay</string>
+    <string name="statusbarfmt_dlg_help">:: Formatting Guide ::\n
+      Every text inside of bracket will be substituted with corresponding text\n
+      For example, \"-( {operator} {sdf:dd/MM hh:mm:ss a} )-\" will be formatted as \"-( HardBanks 28/2 10:54:39 AM )-\"\n \n
+      :: Supported Substituted Keys ::\n
+      &#8226; {operator} -> Show currently active network name (Data Operator, Wi-Fi, Ethernet)\n
+      &#8226; {sdf:[format]} -> Java Simple Date Format\n
+      &#8212; This key need to have the actual SimpleDateFormat source format, e.g : \"{sdf:dd/MM/yyyy}\"\n
+      &#8212; this will be formatted and printed like for example \"28/2/2022\", for possible combinations\n
+      &#8212; please visit : https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html\n
+      &#8226; {charging} -> If is plugged in, will be substituted with lightning emoji\n
+      &#8226; {battery} -> Battery Percentage (0-100), percent sign not included\n
+      &#8226; {battery_f(:[decimal])} -> Battery Percentage in float (0.0-100.0), percent sign not included\n
+      &#8212; The decimal part is optional, it expects number that sets how many digits behind comma\n
+    </string>
+    <string name="settings_display_statusbar_fmt_name">Status Bar Text Format</string>
+  <string name="settings_display_statusbar_fmt_desc">Format of text displayed on status bar (if visible)</string>
+  <string name="common_save">Save</string>
+  <string name="dlg_edit_status_bar_format">Edit Status Bar Format</string>
+  <string name="common_edit">Edit</string>
+  <string name="setting_show_gameboot_desc">Play gameboot animation when launching application</string>
+    <string name="settings_audio_master_volume_name">Master Volume</string>
+  <string name="settings_audio_master_volume_desc">Main volume multiplier</string>
+    <string name="debug_custom_resource_dialog_title">Custom Resource List</string>
+    <string name="common_not_found">Not Found</string>
+    <string name="dbg_custom_file_list">Customized files</string>
+    <string name="dlg_set_search_query">Find in this Category (clear to cancel search)</string>
+    <string name="dlg_rearrange_categories">Rearrange Categories</string>
+    <string name="settings_system_rearrange_category_name">Rearrange Category</string>
+  <string name="settings_system_rearrange_category_desc">Rearrange horizontal items in CrossLauncher main menu</string>
+    <string name="rearrange_start">Move</string>
+  <string name="rearrange_end">Move Here</string>
+    <string name="settings_display_refsize_name">Reference Resolution</string>
+  <string name="settings_display_refsize_desc">Set resolution for drawing and then scaled to device screen</string>
+    <string name="settings_display_hide_statusbar_name">Hide Status Bar</string>
+  <string name="settings_display_hide_statusbar_desc">Do not show status bar at top-right portion of screen</string>
+    <string name="menu_app_info">App Info</string>
+    <string name="dlg_info_name">Title</string>
+    <string name="dlg_info_desc">Description</string>
+  <string name="dlg_info_album">Album</string>
+  <string name="dlg_info_hidden">Is Hidden</string>
+  <string name="dlg_info_category">Category</string>
+  <string name="dlg_info_node">Destination Node</string>
+  <string name="dlg_info_custom_icon">Custom Icon</string>
+  <string name="dlg_info_custom_backdrop">Custom Backdrop</string>
+  <string name="dlg_info_custom_backdrop_overlay">Custom Backdrop Overlay</string>
+  <string name="dlg_info_custom_back_sound">Custom Background Music</string>
+  <string name="dlg_info_custom_anim_icon">Custom Animated Icon</string>
+  <string name="dlg_info_custom_port_backdrop">Custom Portrait Backdrop</string>
+  <string name="dlg_info_custom_port_backdrop_overlay">Custom Portrait Backdrop Overlay</string>
+  <string name="dlg_info_routing">Resulting Path</string>
+  <string name="dlg_info_apk_size">Package Size</string>
+  <string name="dlg_info_update">Updated</string>
+  <string name="dlg_info_version">Version</string>
+    <string name="dlg_info_pkg_name">Package Name</string>
+    <string name="dlg_info_rename">Set app custom label</string>
+    <string name="settings_system_show_hidden_app_desc">Show hidden apps, disabled on next restart</string>
+  <string name="settings_system_show_hidden_app_name">Show hidden apps</string>
+    <string name="category_shortcut">Shortcuts</string>
+    <string name="dlg_info_redesc">Set app custom description</string>
+    <string name="settings_system_maintenance_name">Maintenance</string>
+    <string name="settings_system_maintenance_desc">Tools to rebuild libraries and reset customizations</string>
+    <string name="settings_system_rebuild_app_name">Rebuild App Library</string>
+    <string name="settings_system_rebuild_app_desc">Full re-scan of installed applications</string>
+    <string name="settings_system_refresh_media_name">Refresh Media Library</string>
+    <string name="settings_system_refresh_media_desc">Re-scan Music, Video, and Photo folders</string>
+    <string name="settings_system_clear_cache_name">Clear Icon Cache</string>
+    <string name="settings_system_clear_cache_desc">Drop all cached icons and backdrops (may cause temporary flickering)</string>
+    <string name="settings_system_clear_cache_success">Icon cache cleared</string>
+    <string name="dlg_info_reset">Reset to Default</string>
+    <string name="dlg_info_reset_desc">Reset this app\'s category and node overrides</string>
+    <string name="settings_install_package" translatable="false">Install Package Files</string>
+    <string name="custom_package_error_no_intent">No file intent is returned</string>
+    <string name="common_success">Success</string>
+    <string name="common_toggle">Toggle</string>
+    <string name="package_import_unknown_error">Unknown error occurred</string>
+  <string name="package_import_error_corrupt">Package Corrupted</string>
+  <string name="package_import_error_type_mismatch">File type mismatch, not XPKG file</string>
+  <string name="package_import_status_loading">Loading package file...</string>
+    <string name="xmb_view_content_description">This app is targeted to users who have perfect and partial vision. we do not provide any additional accessibility feature for visually impaired user, So please exit the app immediately and uninstall this app if you think it is unnecessarily installed.</string>
+    <string name="common_apply">Apply</string>
+    <string name="settings_system_android_bar_name">System Bar Visibility</string>
+  <string name="settings_system_android_bar_desc">How system status bar is displayed when launcher is active</string>
+  <string name="system_bar_visible_all">All</string>
+  <string name="system_bar_visible_status">Status Bar</string>
+  <string name="system_bar_visible_navigation">Navigation Bar</string>
+  <string name="system_bar_visible_none">None</string>
+  <string name="item_orientation_desc">Which device orientation used when displaying this launcher</string>
+    <string name="dbg_custom_throw_unhandled_exception">Throw Unhandled Exception</string>
+    <string name="dlg_legacyicon_title">Legacy Icon Background</string>
+  <string name="settings_system_legacy_icon_background_desc">Display background on a non-adaptive app icons</string>
+  <string name="settings_system_wide_icon_card_name">Wide App Icon Cards</string>
+  <string name="settings_system_wide_icon_card_desc">Generate 16:9 cards for square Android app icons</string>
+  <string name="dbg_bitman_info">Bitmap Manager Info</string>
+    <string name="dlg_legacyicon_material_you">Material You</string>
+    <string name="dlg_legacyicon_you_accent">Accent</string>
+  <string name="dlg_legacyicon_you_brightness">Brightness</string>
+    <string name="color_red">Red</string>
+  <string name="color_alpha">Alpha</string>
+  <string name="color_blue">Blue</string>
+  <string name="color_green">Green</string>
+  <string name="Mode">Mode</string>
+  <string name="dlg_legacyicon_material_you_accent_1">Accent 1</string>
+  <string name="dlg_legacyicon_material_you_accent_2">Accent 2</string>
+  <string name="dlg_legacyicon_material_you_accent_3">Accent 3</string>
+  <string name="common_enabled">Enabled</string>
+  <string name="common_disabled">Disabled</string>
+  <string name="dlg_legacyicon_update_info">Legacy app icons in menu will not be updated unless the icon is reloaded by moving the icon in and out of screen\'s top and bottom. </string>
+    <string name="settings_audio_bgm_volume_name">Music Volume</string>
+  <string name="settings_audio_bgm_volume_desc">Music volumes for the menu items and multimedia content</string>
+  <string name="settings_audio_sysbgm_volume_name">System Music Volume</string>
+  <string name="settings_audio_sysbgm_volume_desc">Music volume for system e.g: Gameboot, Coldboot</string>
+  <string name="settings_audio_sfx_volume_name">Sound Effect Volume</string>
+  <string name="settings_audio_sfx_volume_desc">Volume for sound effects</string>
+
+  <string name="settings_audio_sfx_reload_name">Reload Sound Effect</string>
+  <string name="settings_audio_sfx_reload_desc">Reload all loaded sound effect</string>
+  <string name="settings_audio_menu_sfx_name">Menu Sound Effects</string>
+  <string name="settings_audio_menu_sfx_desc">Customize core menu sounds</string>
+  <string name="settings_audio_sfx_selection_label">Cursor</string>
+  <string name="settings_audio_sfx_confirm_label">Confirm</string>
+  <string name="settings_audio_sfx_cancel_label">Cancel</string>
+  <string name="settings_audio_sfx_pick_selection_name">Pick Cursor Sound</string>
+  <string name="settings_audio_sfx_pick_confirm_name">Pick Confirm Sound</string>
+  <string name="settings_audio_sfx_pick_cancel_name">Pick Cancel Sound</string>
+  <string name="settings_audio_sfx_pick_desc">Choose a short menu sound file</string>
+  <string name="settings_audio_sfx_reset_selection_name">Reset Cursor Sound</string>
+  <string name="settings_audio_sfx_reset_confirm_name">Reset Confirm Sound</string>
+  <string name="settings_audio_sfx_reset_cancel_name">Reset Cancel Sound</string>
+  <string name="settings_audio_sfx_reset_desc">Clear the custom menu sound override</string>
+  <string name="settings_audio_sfx_pick_success">%1$s sound set to %2$s</string>
+  <string name="settings_audio_sfx_reset_success">%1$s sound reset</string>
+  <string name="error_audio_sfx_source_missing">Cannot open the selected menu sound file</string>
+  <string name="error_audio_sfx_destination_missing">Cannot create the menu sound override file</string>
+  <string name="error_audio_sfx_unsupported_type">Unsupported menu sound file type</string>
+  <string name="settings_system_visible_app_desc_name">Visible App Description</string>
+  <string name="settings_system_visible_app_desc_desc">What to show underneath of app name</string>
+  <string name="settings_system_visible_desc_val_date">Date</string>
+  <string name="settings_system_visible_desc_val_filesize">File Size</string>
+  <string name="settings_system_visible_desc_val_none">None</string>
+  <string name="settings_system_visible_desc_val_modid">Customization ID</string>
+  <string name="settings_system_visible_desc_val_packagename">Package name</string>
+  <string name="settings_system_visible_desc_val_nkfile">Size and Date</string>
+  <string name="settings_system_detailed_mem_name">Show Detailed Memory Usage</string>
+  <string name="settings_system_detailed_mem_desc">Show additional JVM Memory Usage under FPS Counter</string>
+  <string name="dlg_iconprior_warning_top">The loader will try to load the icon type in top to bottom order until \"Legacy Icon\" is found, the reason for the Legacy icon limitation is that it always presented by the OS even though the app itself didn\'t supply one, therefore putting Legacy Icon to the topmost effectively disables the other type of icon from being loaded.</string>
+  <string name="dlg_iconprior_warning_btm">If custom icon is available, then it will be used regardless of this priority. Icon must be reloaded before it takes effect.</string>
+  <string name="dlg_iconprior_priority_app_icon">Legacy Icon</string>
+  <string name="dlg_iconprior_priority_app_icon_adaptive">Adaptive Icon</string>
+  <string name="dlg_iconprior_priority_app_banner">Legacy Banner (TV)</string>
+  <string name="dlg_iconprior_priority_app_banner_adaptive">Adaptive Banner (TV)</string>
+  <string name="settings_system_reorder_icon_loading_name">App Icon Loading Priority</string>
+  <string name="settings_system_reorder_icon_loading_desc">Set which app icon type to be loaded first before trying to load other type of icon.</string>
+  <string name="settings_system_reorder_icon_loading_value">%s first</string>
+  <string name="shortcut_failed_to_launch_title">Failed to Launch Shortcut</string>
+  <string name="shortcut_failed_to_launch_desc">Activity %s is not found or is forbidden to be launched by CrossLauncher.</string>
+  <string name="error_no_camera_description">No camera app is available on this device.</string>
+  <string name="error_no_browser_description">No browser app is available on this device.</string>
+  <string name="error_custom_launch_item_description">Cannot open this custom launch item.</string>
+  <string name="error_custom_launch_file_description">Cannot open this file or ROM launch item.</string>
+  <string name="error_no_play_store_description">No Play Store or browser app is available on this device.</string>
+  <string name="psn_account_management_placeholder">Account management is not connected yet.</string>
+  <string name="network_remote_play_placeholder">Remote Play is not connected yet.</string>
+  <string name="network_internet_radio_placeholder">Internet Radio is not connected yet.</string>
+  <string name="network_rss_channel_placeholder">RSS Channel is not connected yet.</string>
+  <string name="error_pkgi_no_media">No writable media found</string>
+  <string name="setting_license_name">Open-Source Licenses</string>
+  <string name="setting_license_desc">Show all open-source components used by this launcher</string>
+  <string name="settings_system_prioritize_tv_intent_name">Prioritize TV Intent</string>
+  <string name="settings_system_prioritize_tv_intent_desc">On TV, Launch TV/Leanback intent and fallback to phone if not found</string>
+  <string name="settings_system_browser_launch_mode_name">Internet Browser Launch Mode</string>
+  <string name="settings_system_browser_launch_mode_desc">How the Internet Browser node should open websites</string>
+  <string name="settings_system_browser_launch_mode_default">Use default browser</string>
+  <string name="settings_system_browser_launch_mode_ask">Ask every time</string>
+  <string name="shortcut_launch">Launch</string>
+  <string name="shortcut_remove">Remove</string>
+  <string name="dlg_confirm_confirm">Confirm</string>
+  <string name="dlg_confirm_cancel">Cancel</string>
+  <string name="shortcut_remove_confirm_text">Would you like to delete this shortcut?\n\n%s</string>
+  <string name="shortcut_rename">Rename</string>
+  <string name="category_photo">Photo</string>
+  <string name="common_change">Change</string>
+  <string name="error_category_switch_failed_title">Failed to swap app category</string>
+  <string name="error_category_switch_failed_desc">App with id \"%1$s\" cannot be moved from category id \"%2$s\" to \"%3$s\". \n\nHowever, app\'s state have been saved, restarting the launcher will put the icon in designated catgeory.</string>
+  <string name="settings_system_reset_categories_name">Reset App Categories</string>
+  <string name="settings_system_reset_categories_desc">Clear all manual category overrides and restore default app organization.</string>
+  <string name="settings_system_reset_categories_success">App categories have been reset.</string>
+  <string name="settings_system_reset_all_customizations_name">Reset All Customizations</string>
+  <string name="settings_system_reset_all_customizations_desc">Clear themes, icon overrides, custom resources, fonts, wallpaper, custom items, and launcher preferences.</string>
+  <string name="settings_system_reset_all_customizations_confirm">This will remove all launcher customizations and restart with default APK assets, similar to a fresh install. Back up your XTF first.</string>
+  <string name="settings_system_reset_all_customizations_success">Customization reset complete. Removed %1$d stored entries.</string>
+  <string name="settings_system_video_icon_mode_name">Animated Icons</string>
+  <string name="settings_system_video_icon_mode_desc">Choose when animated item icons should play</string>
+  <string name="settings_system_manage_nodes_name">Manage Custom Items</string>
+  <string name="settings_system_manage_nodes_desc">Create or delete custom sub-folders and launch items.</string>
+  <string name="settings_system_manage_create_name">Create Items</string>
+  <string name="settings_system_manage_create_desc">Add custom folders, links, and ROM launch items.</string>
+  <string name="settings_system_manage_custom_folders_name">Custom Folders</string>
+  <string name="settings_system_manage_custom_folders_desc">Review or delete launcher-created folders.</string>
+  <string name="settings_system_manage_launch_items_name">Launch Items</string>
+  <string name="settings_system_manage_launch_items_desc">Review or delete custom links and ROM launch items.</string>
+  <string name="settings_system_manage_builtin_nodes_name">Built-in Nodes</string>
+  <string name="settings_system_manage_builtin_nodes_desc">Hide built-in nodes or edit supported launch targets.</string>
+  <string name="settings_system_add_node">Add New Node</string>
+  <string name="settings_system_add_url_launch_item">Add Web Link</string>
+  <string name="settings_system_add_file_launch_item">Add File or ROM</string>
+  <string name="settings_system_launch_item_name">Launch Item Name</string>
+  <string name="settings_system_launch_item_target">URL or Deep Link</string>
+  <string name="settings_system_launch_item_delete_confirm">Are you sure you want to delete this custom launch item?</string>
+  <string name="settings_system_edit_node_launch_target">Edit Launch Target</string>
+  <string name="settings_system_set_node_launch_app">Set App Launch Target</string>
+  <string name="settings_system_set_node_launch_url">Set Web Link Target</string>
+  <string name="settings_system_set_emulator_app">Set Emulator App</string>
+  <string name="settings_system_reset_emulator_app">Reset Emulator App</string>
+  <string name="settings_system_choose_emulator_required">Use Triangle, then Set Emulator App for this ROM.</string>
+  <string name="settings_system_reset_node_launch_target">Reset Launch Target</string>
+  <string name="settings_system_default_node_launch_target">Default</string>
+  <string name="settings_system_launch_app_list_empty">App list is still loading. Try again in a moment.</string>
+  <string name="settings_system_node_name">Node Name</string>
+  <string name="settings_system_node_category">Parent Category</string>
+  <string name="settings_system_node_delete_confirm">Are you sure you want to delete this node? Apps inside will be moved back to the main category.</string>
+  <string name="settings_system_builtin_node_delete_confirm">Delete this built-in node from the current node list?</string>
+  <string name="settings_system_node_exists">A node with this ID already exists.</string>
+  <string name="system_video_mode_disabled">Disabled</string>
+  <string name="system_video_mode_all_time">When Visible</string>
+  <string name="system_video_mode_selected_only">When Selected</string>
+    <string name="settings_system_update_name">System Update</string>
+    <string name="settings_system_update_desc">Check for launcher updates</string>
+    <string name="system_update_check">Check</string>
+    <string name="system_update_download">Download</string>
+    <string name="updater_found_update_title">System Update Found!</string>
+  <string name="updater_found_update_desc"><![CDATA[You can check and download the update at Settings > System Update\nor you can open the GitHub Release page and download from there]]></string>
+  <string name="updater_download_failed_title">Failed to download update</string>
+  <string name="updater_download_failed_unknown_error">Unknown error encountered</string>
+    <string name="settings_category_media_name">Media Settings</string>
+  <string name="settings_category_media_desc">Media listing and media item behaviour</string>
+  <string name="permission_granted">Permission Granted</string>
+  <string name="permission_not_granted">Permission not Granted</string>
+  <string name="settings_media_request_permission_name">Media Access</string>
+  <string name="settings_media_request_permission_desc">Whether the launcher can access media on this device</string>
+    <string name="error_menubgm_load_nopath">Failed to load requested system BGM</string>
+    <string name="picker_pick_bgm">Pick System BGM</string>
+  <string name="error_menubgm_copy_empty">Cannot find destination directory, this might be due to system error</string>
+  <string name="error_menubgm_source_null">Source file empty, either due to picker app\'s error or overly enforced system security</string>
+  <string name="error_menubgm_copy_source_not_found">App cannot find source file. This might be due to picker\'s fault or overly enforced system security</string>
+  <string name="settings_audio_menubgm_volume_name">Menu Music Volume</string>
+  <string name="settings_audio_menubgm_volume_desc">Music volumes for menu background (if loaded)</string>
+  <string name="settings_audio_menubgm_pick_name">Pick Menu Music File</string>
+  <string name="settings_audio_menubgm_pick_desc">Pick Audio file for menu music that is always playing in background</string>
+  <string name="settings_audio_menubgm_delete_name">Delete Menu Music File</string>
+  <string name="settings_audio_menubgm_delete_desc">Delete menu background music file</string>
+  <string name="media_open">Open</string>
+  <string name="media_open_with">Open with ...</string>
+  <string name="media_play">Play</string>
+  <string name="media_delete">Delete</string>
+  <string name="media_delete_confirmation">Would you like to delete \"%s\" ?\n\nThis operation cannot be undone.</string>
+  <string name="media_share">Share</string>
+  <string name="media_set_as_wallpaper">Set as Wallpaper</string>
+  <string name="media_set_as_launcher_wallpaper">Set as Launcher Wallpaper</string>
+  <string name="media_set_as_device_wallpaper">Set as Device Wallpaper</string>
+  <string name="error_setting_not_found">Setting not Found</string>
+  <string name="error_setting_not_found_description">This launcher cannot open setting page for %1$s.
+\n
+\nReason : %2$s
+\n
+\nWould you like to open the main Settings page instead so you can access manually?</string>
+  <string name="android_dbg_setting_invalid_page_name">Open Invalid Setting Page</string>
+  <string name="android_dbg_setting_invalid_page_desc">Open non-existent Setting page, test for devices with incomplete settings</string>
+  <string name="common_loading">Loading…</string>
+  <string name="error_setting_wait_dialog_closing_msg">Now Closing…\n\nIf dialog not closing soon, press Confirm or Cancel</string>
+  <string name="android_dbg_setting_self_name">Open Xmb as Setting</string>
+  <string name="android_dbg_setting_self_desc">This should trigger same effect as when Android have settings entry but not the actual implementation.</string>
+    <string name="notification_listener_service_name">CrossLauncher System Notification Listener</string>
+    <string name="sysnotif_new">New Notification</string>
+  <string name="sysnotif_no_info">No Information is available</string>
+    <string name="settings_system_notification_enabled_name">System Notification</string>
+  <string name="settings_system_notification_enabled_desc">Is launcher allowed to access Android Notification</string>
+    <string name="error_sysnotif_no_settings">Failed to Grant Notification Access</string>
+  <string name="dbg_export_log_name">Export Log</string>
+  <string name="dbg_export_log_desc">Export log file to storage ( using Android Storage Scope )</string>
+  <string name="dbg_export_log_filesystem">via File System</string>
+  <string name="dbg_export_log_share">by Share</string>
+  <string name="settings_system_sidemenu_navi_mode_value_gesture">Gesture</string>
+  <string name="settings_system_sidemenu_navi_mode_value_tap">Tap</string>
+  <string name="settings_system_sidemenu_navi_mode_desc">How side menu should be navigated on touch screen</string>
+  <string name="settings_system_sidemenu_navi_mode_name">Side Menu Touch Navigation Mode</string>
+  <string name="settings_category_theme_name">Theme Settings</string>
+  <string name="settings_category_theme_desc">Customise the look and feel of the launcher</string>
+  <string name="settings_theme_custom_font_pick_name">Set Launcher Font</string>
+  <string name="settings_theme_custom_font_pick_desc">Choose a .ttf or .otf font for launcher text</string>
+  <string name="settings_theme_custom_font_reset_name">Reset Font</string>
+  <string name="settings_theme_custom_font_reset_desc">Restore the launcher\'s default font</string>
+  <string name="settings_theme_customize_icons_name">Customize Shell Icons</string>
+  <string name="settings_theme_customize_icons_desc">Change the icons for categories and system nodes</string>
+  <string name="settings_theme_icon_picker_title">Select Icon for %s</string>
+  <string name="settings_theme_icon_reset_all">Reset All Shell Icons</string>
+  <string name="settings_theme_icon_reset_confirm">Are you sure you want to reset all manual shell icon overrides?</string>
+  <string name="settings_theme_export_xtf_name">Export Theme Package</string>
+  <string name="settings_theme_export_xtf_desc">Package current launcher settings, assets, and customization into an XTF file</string>
+  <string name="settings_theme_import_xtf_name">Import Theme Package</string>
+  <string name="settings_theme_import_xtf_desc">Restore launcher settings, assets, and customization from an XTF file</string>
+  <string name="settings_theme_pick_launcher_wallpaper_name">Set Launcher Wallpaper</string>
+  <string name="settings_theme_pick_launcher_wallpaper_desc">Choose an image for the launcher-only wallpaper layer</string>
+  <string name="settings_theme_reset_launcher_wallpaper_name">Reset Launcher Wallpaper</string>
+  <string name="settings_theme_reset_launcher_wallpaper_desc">Clear the launcher-only wallpaper and reveal the device wallpaper</string>
+  <string name="settings_theme_reset_launcher_wallpaper_success">Launcher wallpaper has been reset.</string>
+  <string name="settings_theme_coldboot_image_pick_name">Pick Coldboot Image</string>
+  <string name="settings_theme_coldboot_image_pick_desc">Choose the launcher startup image override</string>
+  <string name="settings_theme_coldboot_image_pick_success">Coldboot image set to %s</string>
+  <string name="settings_theme_coldboot_audio_pick_name">Pick Coldboot Audio</string>
+  <string name="settings_theme_coldboot_audio_pick_desc">Choose the launcher startup audio override</string>
+  <string name="settings_theme_coldboot_audio_pick_success">Coldboot audio set to %s</string>
+  <string name="settings_theme_coldboot_reset_name">Reset Coldboot</string>
+  <string name="settings_theme_coldboot_reset_desc">Clear custom coldboot image and audio overrides</string>
+  <string name="settings_theme_coldboot_reset_success">Coldboot overrides reset. Files removed: %d</string>
+  <string name="error_coldboot_destination_missing">Cannot create the coldboot override file</string>
+  <string name="error_coldboot_source_missing">Cannot open the selected coldboot file</string>
+  <string name="error_coldboot_unsupported_type">Unsupported coldboot file type</string>
+  <string name="error_coldboot_audio_too_long">Coldboot audio must be 10 seconds or shorter</string>
+  <string name="error_coldboot_audio_duration_unknown">Cannot read coldboot audio duration</string>
+  <string name="settings_theme_gameboot_image_pick_name">Pick Gameboot Visual</string>
+  <string name="settings_theme_gameboot_image_pick_desc">Choose the app-launch gameboot image, GIF, or MP4 override</string>
+  <string name="settings_theme_gameboot_image_pick_success">Gameboot visual set to %s</string>
+  <string name="settings_theme_gameboot_audio_pick_name">Pick Gameboot Audio</string>
+  <string name="settings_theme_gameboot_audio_pick_desc">Choose the app-launch gameboot audio override</string>
+  <string name="settings_theme_gameboot_audio_pick_success">Gameboot audio set to %s</string>
+  <string name="settings_theme_gameboot_reset_name">Reset Gameboot</string>
+  <string name="settings_theme_gameboot_reset_desc">Clear custom gameboot image and audio overrides</string>
+  <string name="settings_theme_gameboot_reset_success">Gameboot overrides reset. Files removed: %d</string>
+  <string name="settings_theme_resource_overrides_name">Custom Resources</string>
+  <string name="settings_theme_resource_overrides_desc">Import or reset launcher fonts, wallpapers, boot media, sounds, and shell icons</string>
+  <string name="settings_theme_packages_name">Theme Packages</string>
+  <string name="settings_theme_packages_desc">Import or export portable theme and customization packages</string>
+  <string name="settings_theme_resource_fonts_name">Fonts</string>
+  <string name="settings_theme_resource_fonts_desc">Import or reset the launcher UI font</string>
+  <string name="settings_theme_resource_wallpaper_name">Launcher Wallpaper</string>
+  <string name="settings_theme_resource_wallpaper_desc">Import or reset the launcher-only wallpaper layer</string>
+  <string name="settings_theme_resource_coldboot_name">Coldboot</string>
+  <string name="settings_theme_resource_coldboot_desc">Import or reset startup image and audio overrides</string>
+  <string name="settings_theme_resource_gameboot_name">Gameboot</string>
+  <string name="settings_theme_resource_gameboot_desc">Import or reset app-launch visual and audio overrides</string>
+  <string name="settings_theme_resource_menu_sfx_name">Menu Sound Effects</string>
+  <string name="settings_theme_resource_menu_sfx_desc">Import or reset core cursor, confirm, and cancel sounds</string>
+  <string name="settings_theme_resource_hud_name">HUD</string>
+  <string name="settings_theme_resource_hud_desc">Import or reset top-right status HUD assets</string>
+  <string name="settings_theme_storage_label_name">Storage Label</string>
+  <string name="settings_theme_storage_label_desc">Choose the default label used for storage-root nodes</string>
+  <string name="settings_theme_storage_label_internal">Internal Storage</string>
+  <string name="settings_theme_storage_label_memory_stick">Memory Stick™</string>
+  <string name="settings_theme_storage_label_applied">Storage label updated. Restarting launcher.</string>
+  <string name="settings_theme_battery_glyph_pick_name">Pick Battery Glyph</string>
+  <string name="settings_theme_battery_glyph_pick_desc">Choose a transparent battery frame image override</string>
+  <string name="settings_theme_battery_glyph_pick_success">Battery glyph set to %s</string>
+  <string name="settings_theme_battery_glyph_reset_name">Reset Battery Glyph</string>
+  <string name="settings_theme_battery_glyph_reset_desc">Clear the custom battery glyph override</string>
+  <string name="settings_theme_battery_glyph_reset_success">Battery glyph reset. Files removed: %d</string>
+  <string name="error_battery_glyph_destination_missing">Cannot create the battery glyph override file</string>
+  <string name="error_battery_glyph_source_missing">Cannot open the selected battery glyph file</string>
+  <string name="error_battery_glyph_unsupported_type">Unsupported battery glyph file type</string>
+  <string name="error_gameboot_destination_missing">Cannot create the gameboot override file</string>
+  <string name="error_gameboot_source_missing">Cannot open the selected gameboot file</string>
+  <string name="error_gameboot_unsupported_type">Unsupported gameboot file type</string>
+  <string name="error_anim_icon_unsupported_type">Animated icons must be GIF, APNG, or WebP</string>
+  <string name="error_anim_icon_too_large">Animated icon file is too large. Maximum size is %1$d MB.</string>
+  <string name="dlg_info_reset_custom_icon">Reset Custom Icon</string>
+  <string name="dlg_info_reset_custom_backdrop">Reset Custom Backdrop</string>
+  <string name="dlg_info_reset_all_assets">Reset All Custom Assets</string>
+  <string name="settings_theme_category_icons">Category Icons</string>
+  <string name="settings_theme_node_icons">Node Icons</string>
+  <string name="settings_theme_icon_library_folder">Set Icon Library Folder</string>
+  <string name="settings_theme_icon_library_reset">Reset Icon Library Path</string>
+</resources>

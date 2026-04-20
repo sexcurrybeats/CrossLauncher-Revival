@@ -1,0 +1,4 @@
+-keep class id.psw.crosslauncher.xlib.XmbExtension { public *; }
+-keep class id.psw.crosslauncher.xlib.ExtensionType { public *; }
+-keep class id.psw.crosslauncher.xlib.ExtensionErrorReason { public *; }
+-keep class id.psw.crosslauncher.xlib.XmbStatusTextExtension { public *; }

@@ -1,0 +1,87 @@
+package id.psw.vshlauncher
+
+import android.content.Context
+import android.content.pm.LauncherApps
+import android.os.Build
+import id.psw.vshlauncher.Vsh.Companion.ITEM_CATEGORY_SHORTCUT
+import id.psw.vshlauncher.types.FileQuery
+import id.psw.vshlauncher.types.items.XmbItemCategory
+import id.psw.vshlauncher.types.items.XmbShortcutItem
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.File
+
+/**
+ * Shortcut will be located at `(Cross Launcher Data)/files/dev_hdd0/shortcuts/`
+ * Each shortcut is it's own directory, each with randomized id (to mitigate apps that uses unacceptable id and package name)
+ * Contains :
+ * - `SHORTCUT.INI` - Main Shortcut Definition
+ * - `ICON0.PNG` - Shortcut Icon
+ *
+ * Shortcut uses same customization directory structure as Apps
+ */
+fun Vsh.reloadShortcutList(){
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        Logger.d("SHORTCUT", "Getting shortcuts...")
+        val apl = getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
+        if(apl.hasShortcutHostPermission()){
+            for(p in apl.profiles){
+                val q = LauncherApps.ShortcutQuery()
+                val ss = apl.getShortcuts(q, p)
+                if( ss != null){
+                    for(s in ss){
+                        Logger.d("SHORTCUT", "${s.id} - ${s.`package`} - ${s.intent} - ${s.activity?.packageName}")
+                    }
+                }
+            }
+        }
+    } else {
+        // TODO("VERSION.SDK_INT < Q")
+    }
+
+    vsh.lifeScope.launch {
+        withContext(Dispatchers.IO){
+            val h = addLoadHandle()
+            val c = categories.find { it.id == ITEM_CATEGORY_SHORTCUT } ?: XmbItemCategory(
+                this@reloadShortcutList,
+                ITEM_CATEGORY_SHORTCUT,
+                R.string.category_shortcut,
+                R.drawable.category_shortcut,
+                true,
+                defaultSortIndex = 9
+            ).also {
+                categories.add(it)
+                categories.sortBy { category -> category.sortIndex }
+                hiddenCategories.add(ITEM_CATEGORY_SHORTCUT)
+            }
+
+            c.content.clear()
+            System.gc()
+
+            val paths = FileQuery(VshBaseDirs.SHORTCUTS_DIR).execute(vsh)
+            for(path in paths){
+                if(path.isDirectory){
+                    val scDirs = path.listFiles { dir, _ -> dir.isDirectory } ?: continue
+                    for(sc in scDirs){
+                        val ini = File(sc, "SHORTCUT.INI")
+                        if(ini.exists() || ini.isFile){
+                            val app = XmbShortcutItem(vsh, ini)
+                            addToCategory(ITEM_CATEGORY_SHORTCUT, app)
+                        }
+                    }
+                }
+            }
+
+            if(c.content.isNotEmpty()){
+                if(hiddenCategories.contains(ITEM_CATEGORY_SHORTCUT)){
+                    hiddenCategories.remove(ITEM_CATEGORY_SHORTCUT)
+                }
+            }else{
+                hiddenCategories.add(ITEM_CATEGORY_SHORTCUT)
+            }
+
+            setLoadingFinished(h)
+        }
+    }
+}

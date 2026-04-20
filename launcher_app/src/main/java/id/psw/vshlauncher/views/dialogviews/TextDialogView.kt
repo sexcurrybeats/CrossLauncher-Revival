@@ -1,0 +1,75 @@
+package id.psw.vshlauncher.views.dialogviews
+
+import android.graphics.*
+import android.text.TextPaint
+import id.psw.vshlauncher.select
+import id.psw.vshlauncher.types.XmbItem
+import id.psw.vshlauncher.typography.FontCollections
+import id.psw.vshlauncher.views.XmbDialogSubview
+import id.psw.vshlauncher.views.XmbView
+import id.psw.vshlauncher.views.drawText
+import id.psw.vshlauncher.views.wrapText
+
+class TextDialogView(v: XmbView) : XmbDialogSubview(v) {
+    override var hasNegativeButton: Boolean = true
+    override var hasPositiveButton: Boolean = true
+    private val textPaint = TextPaint(TextPaint.ANTI_ALIAS_FLAG).apply {
+        textSize = 25.0f
+        color = Color.WHITE
+        textAlign = Paint.Align.CENTER
+        typeface = FontCollections.masterFont
+    }
+
+    var onPositiveButton : ((TextDialogView) -> Unit)? = null
+    var onNegativeButton : ((TextDialogView) -> Unit)? = null
+
+    override var icon: Bitmap = XmbItem.TRANSPARENT_BITMAP
+    override var title: String = "Dialog"
+
+    var content = ""
+    var textSpacing = 1.25f
+
+    override var negativeButton: String = ""
+    override var positiveButton: String = ""
+
+    override fun onDraw(ctx: Canvas, drawBound: RectF, deltaTime:Float) {
+        textPaint.textSize = isPSP.select(30.0f, 25.0f)
+        val lines = textPaint.wrapText(content, drawBound.width() - 200.0f).lines()
+        var y = -(lines.size * 0.5f) * (textPaint.textSize * textSpacing)
+        lines.forEach {
+            ctx.drawText(it, drawBound.centerX(), drawBound.centerY() + y, textPaint, 0.5f)
+            y += textPaint.textSize * textSpacing
+        }
+    }
+
+    override fun onDialogButton(isPositive: Boolean) {
+        if(isPositive){
+            onPositiveButton?.invoke(this)
+        }else{
+            onNegativeButton?.invoke(this)
+        }
+    }
+
+    fun setNegative(text:String, func:((TextDialogView) -> Unit)?) : TextDialogView{
+        hasNegativeButton = func != null
+        negativeButton = text
+        onNegativeButton = func
+        return this
+    }
+    fun setPositive(text:String, func:((TextDialogView) -> Unit)?) : TextDialogView{
+        hasPositiveButton = func != null
+        positiveButton = text
+        onPositiveButton = func
+        return this
+    }
+    fun setData(icon:Bitmap?, title:String, content:String): TextDialogView {
+        this.icon = icon?: XmbItem.TRANSPARENT_BITMAP
+        this.title = title
+        this.content = content
+        return this
+    }
+    fun setLineSpacing(space:Float) : TextDialogView{
+        textSpacing = space
+        return this
+    }
+}

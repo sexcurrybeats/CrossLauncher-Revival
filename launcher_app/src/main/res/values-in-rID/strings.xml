@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Peluncur Cross</string>
+    <string name="orient_unknown">Tidak diketahui</string>
+    <string name="orient_landscape">Miring</string>
+    <string name="orient_portrait">Tegak</string>
+    <string name="orient_user">Mengikut Sistem</string>
+    <string name="item_orientation">Orientasi Layar</string>
+    <string name="first_run_instruction_title">Penggunaan Pertama</string>
+    <string name="first_run_instruction_content">
+    Karena ini adalah penggunaan pertama mu di perangkat ini…
+    \n Berikut adalah petunjuk navigasi untuk launcher ini
+    \n
+    \n Sentuh :
+    \n- Menjalankan Item : Tap pada ikon item
+    \n- Beralih kategori : Geser ke kiri atau kanan
+    \n- Beralih item : Geser ke atas atau bawah
+    \n- Membuka / menutup opsi : Tap dua jari di mana saja
+    \n- Membuka kembali menu utama : Saat menu disembunyikan, Tap di mana saja
+    \n
+    \n Keyboard / Remote TV :
+    \n- Menjalankan Item : Enter / OK
+    \n- Beralih kategori : Arah Kiri / Kanan
+    \n- Beralih item : Arah Atas / Bawah
+    \n- Membuka / menutup opsi : Tab / Menu (di kanan tombol Spasi)
+    \n- Membuka kembali menu utama : Enter
+    \n- Lompat ke item : Tombol huruf apa saja, asalkan ada item yang berawalan huruf tersebut
+    \n
+    \n Stik Tombol-Berlian:
+    \n- Menjalankan Item : Bulat / Silang (tergantung pengaturan)
+    \n- Beralih kategori : Arah Kiri / Kanan
+    \n- Beralih item : Arah Atas / Bawah
+    \n- Membuka / menutup opsi : Segitiga
+    \n- Membuka kembali menu utama : Start
+    \n
+    \n Stik Xbox:
+    \n- Menjalankan Item : A / B (tergantung pengaturan)
+    \n- Beralih kategori : Arah Kiri / Kanan
+    \n- Beralih item : Arah Atas / Bawah
+    \n- Membuka / menutup opsi : Y
+    \n- Membuka kembali menu utama : Menu
+    \n
+    \n Jika opsi "Pakai Silang / A untuk konfirmasi" aktif, maka tombol
+    \n Silang / A akan menjadi tombol untuk menjalankan fungsi item,
+    \n Jika tidak, maka ia akan memakai tombol Bulat atau B
+  </string>
+    <string name="storage_permission_not_granted">Izin akses penyimpanan ditolak, pemain musik tidak akan bisa dipakai</string>
+    <string name="setting_show_gameboot_name">Mainkan Gameboot</string>
+    <string name="setting_mimic_dynamic_theme">Tampilkan kemerlap saat meluncurkan aplikasi</string>
+    <string name="setting_gameboot_custom_guide">Cara memodifikasi logo brand</string>
+    <string name="setting_coldboot_custom_guide">Cara memodifikasi logo awal</string>
+    <string name="click_here">Kilk disini</string>
+    <string name="app_not_installed">Apl tidak terpasang</string>
+    <string name="audioplayer_pause">Jeda</string>
+    <string name="audioplayer_resume">Lanjutkan</string>
+    <string name="audioplayer_stop">Hentikan</string>
+    <string name="unknown"><![CDATA[<Tidak dikenal>]]></string>
+    <string name="category_home">Halaman depan</string>
+    <string name="category_apps">Apl</string>
+    <string name="category_games">Permainan</string>
+    <string name="category_videos">Video</string>
+    <string name="category_music">Musik</string>
+    <string name="category_settings">Pengaturan</string>
+    <string name="videoplayer_pause">Jeda</string>
+    <string name="videoplayer_stop">Hentikan</string>
+    <string name="videoplayer_play">Putar</string>
+    <string name="videoplayer_bwd">Mundur</string>
+    <string name="videoplayer_fwd">Maju</string>
+    <string name="videoplayer_switchar">Perbesaran</string>
+    <string name="videoplayer_viewsetting">Pengaturan Tampilan</string>
+    <string name="videoplayer_volume">Volume Suara</string>
+    <string name="videoplayer_switchdisplay">Tampilan</string>
+    <string name="videoplayer_delete">Hapus</string>
+    <string name="videoplayer_setthumbnail">Jadikan Awal Preview</string>
+    <string name="common_yes">Ya</string>
+    <string name="common_no">Tidak</string>
+    <string name="menu_rebuild_db">Bangun ulang database</string>
+    <string name="common_click_here">Klik disini</string>
+    <string name="menu_rebuild_db_desc">Jika aplikasi tidak muncul setelah pemasangan</string>
+    <string name="common_corrupted">Data rusak</string>
+    <string name="audio_corrupted">Data suara rusak</string>
+    <string name="app_hide_menu">Sembunyikan Menu</string>
+    <string name="app_hide_menu_desc">Tap dimana saja untuk membuka lagi menu setelah disembunyikan</string>
+    <string name="xmb_wave_livewp_desc">Live Wallpaper Wave</string>
+    <string name="xmb_icon_desc_root">This icon shouldn\'t be visible</string>
+    <string name="plugin_name_musiclist">Daftar Musik (Internal)</string>
+    <string name="plugin_desc_musiclist">Ambil semua musik dalam perangkat lewat MediaStore Android</string>
+    <string name="app_name_wave">Wallpaper Gelombang</string>
+    <string name="app_launch">Luncurkan</string>
+    <string name="app_find_on_playstore">Cari di Play Store</string>
+    <string name="view_app_info">Info Aplikasi</string>
+    <string name="app_show_details">Rincian</string>
+    <string name="common_back">Kembali</string>
+    <string name="app_open_data_dir">Buka Direktori Data</string>
+    <string name="app_open_mod_dir">Buka Direktori Kustomisasi</string>
+    <string name="app_open_obb_dir">Buka Direktori OBB</string>
+    <string name="app_uninstall">Copot Pemasangan</string>
+    <string name="app_info_system_activity">Buka Pengaturan</string>
+    <string name="title_activity_wave_wallpaper_setting">Pengaturan Latar Belakang XMB Wave</string>
+    <string name="error_common_header">Galat</string>
+    <string name="error_category_launch">Nggak ... Ini seharusnya gak di luncurkan ...</string>
+    <string name="nettype_ethernet">Kabel LAN</string>
+    <string name="nettype_no_connection">Tidak ada Internet</string>
+    <string name="nettype_wifi">Wi-Fi</string>
+    <string name="font_load_failed">Gagal ketika memuat font : %s</string>
+    <string name="category_is_empty">Kosong</string>
+    <string name="settings_category_display_desc">Ubah pengaturan untuk sistem rendering</string>
+    <string name="settings_category_display_name">Pengaturan Tampilan</string>
+    <string name="app_refresh_due_to_uninstall">Apl di copot pemasangannya, memuat ulang daftar aplikasi</string>
+    <string name="error_no_appmarket_title">Anu... Play Store?</string>
+    <string name="error_no_appmarket_description">Tidak menemukan handler untuk URL \"market:\", Apakah ada Toko Aplikasi yang  terpasang di perangkat anda? mis. Google Play Store</string>
+    <string name="bre_name">Penerima Siaran</string>
+    <string name="perm_install_shortcut_label">Pasang Pintasan</string>
+    <string name="perm_install_shortcut_desc">Pasang pintasan statis ke Cross Launcher</string>
+    <string name="sdk_widget_shortcut_not_supported">Hanya mendukung Android O keatas</string>
+    <string name="default_dialog_title">Dialog</string>
+    <string name="setting_display_layout_type">Tata Letak Shell</string>
+    <string name="setting_display_layout_type_desc">Pilih gaya navigasi dan tata tubuh yang digunakan peluncur</string>
+    <string name="setting_systeminfo_name">Informasi</string>
+    <string name="setting_systeminfo_desc">Tampilkan informasi tambahan</string>
+    <string name="string_systeminfo_androidver_name">Versi Android</string>
+    <string name="settings_display_clock_second_analog_name">Detik pada Jam Analog</string>
+    <string name="settings_display_clock_second_analog_desc">Tampilkan detik pada jam analog pada bar status</string>
+    <string name="settings_category_system_name">Pengaturan Sistem</string>
+    <string name="settings_category_system_desc">Ubah pengaturan peluncur</string>
+    <string name="settings_display_show_operator_name">Tampilkan Nama Jaringan</string>
+    <string name="settings_display_show_operator_desc">Tampilkan nama jaringan yang sedang tersambung, antara Wi-Fi, Ethernet maupun Data Seluler</string>
+    <string name="string_systeminfo_androidmdl_name">Model Perangkat</string>
+    <string name="settings_system_show_fps_name">Tampilkan FPS</string>
+    <string name="app_create_customization_folder">Buat Dir Kustomisasi</string>
+    <string name="app_customization_file_created">Direktori Kustomisasi Dibuat</string>
+    <string name="settings_system_show_fps_desc">" Tampilkan performa rendering aplikasi"</string>
+    <string name="app_sorting_name">Dari Nama</string>
+    <string name="app_sorting_updtime">Dari Tanggal Diperbarui</string>
+    <string name="app_sorting_filesize">Dari Ukuran APK</string>
+    <string name="app_sorting_actname">Dari Nama Paket</string>
+    <string name="app_category_switch_sort">Ganti Urutan</string>
+    <string name="screen_portrait_warning_title">Layar dalam mode Tegak</string>
+    <string name="screen_portrait_warning_desc">Layar tegak dapat menyebabkan performa penggambar yang buruk pada perangkat dengan spesifikasi rendah dan penggunaan RAM tinggi karena lebih banyak ikon yang akan tampil di layar pada satu waktu. Jika itu terjadi, anda bisa memaksa orientasi launcher menjadi miring dari pengaturan.</string>
+    <string name="no_hwaccel_warning_title">Tidak ada Akselerasi Perangkat Keras</string>
+    <string name="no_hwaccel_warning_desc">Tampilan tidak di akselerasi lewat perangkat keras, performa penggambar mungkin lambat. Pada beberapa perangkat, anda bisa mengaktifkan akselerasi perangkat keras dari Opsi Pengembang, antara khusus untuk beberapa aplikasi atau untuk seluruh sistem.</string>
+    <string name="locale_lang_display_name">Bahasa Indonesia</string>
+    <string name="settings_system_language">Bahasa Tampilan Peluncur</string>
+    <string name="settings_system_language_description">Bahasa yang di tampilkan pada launcher</string>
+    <string name="photoepilepsy_warning">
+        PERINGATAN EPILEPSI FOTOSENSITIF
+        \nJIKA ANDA MEMILIKI RIWAYAT EPILEPSI ATAU KEJANG, SILAHKAN BERKONSULTASI KE DOKTER SEBELUM PEMAKAIAN. BEBERAPA POLA DAPAT MEMICU GEJALA TANPA RIWAYAT SEBELUMNYA, SEBELUM MEMAKAI PELUNCUR INI, SILAHKAN BACA HALAMAN PANDUAN DI GITHUB DENGAN SEKSAMA.
+        \n
+        \nAPLIKASI INI BUKAN EMULATOR!
+        \nAPLIKASI INI ADALAH PELUNCUR BERGAYA SHELL, BUKAN EMULATOR KONSOL GAME. JIKA ANDA MEMASANGNYA DENGAN HARAPAN SEBAGAI EMULATOR, ANDA BEBAS MENCOPOT PEMASANGANNYA.
+        \n
+        \nPERINGATAN INI BISA DI MATIKAN LEWAT PENGATURAN SISTEM
+    </string>
+    <string name="settings_system_hide_boot_warning">Sembunyikan Peringatan Pembukaan</string>
+    <string name="settings_system_asian_console_name">Perilaku Tombol Bulat</string>
+    <string name="settings_system_asian_console_desc">Apa yang akan dilakukan tombol bulat (B di Xbox, A di Nintendo) ke sistem</string>
+    <string name="settings_system_asian_console_true">Setuju</string>
+    <string name="settings_system_asian_console_false">Batal</string>
+    <string name="setting_android_name">Pengaturan Sistem Android</string>
+    <string name="setting_android_desc">Pintasan ke pengaturan sistem Android</string>
+    <string name="android_sys_network_name"><![CDATA[Jaringan & Internet]]></string>
+    <string name="android_sys_network_desc">Wi-Fi, seluler, penggunaan kuota, dan hotspot</string>
+    <string name="android_sys_devices_name">Perangkat tersambung</string>
+    <string name="android_sys_devices_desc">Bluetooth, USB</string>
+    <string name="android_sys_apps_name"><![CDATA[Aplikasi & notifikasi]]></string>
+    <string name="android_sys_apps_desc">Aplikasi baru-baru ini, aplikasi default</string>
+    <string name="android_sys_all_apps_name">Semua aplikasi</string>
+    <string name="android_sys_all_apps_desc">Lihat semua aplikasi</string>
+    <string name="android_sys_notification_name">Akses notifikasi</string>
+    <string name="android_sys_notification_desc">Atur akses notifikasi untuk semua aplikasi</string>
+    <string name="android_sys_default_apps_name">Aplikasi default</string>
+    <string name="android_sys_default_apps_desc">Peramban, Media, Telefon dan Perpesanan</string>
+    <string name="android_sys_setting_homepage_name">Halaman utama pengaturan</string>
+    <string name="android_sys_setting_homepage_desc">Luncurkan halaman utama aplikasi pengaturan</string>
+    <string name="android_sys_nodisturb_name">Jangan ganggu</string>
+    <string name="android_sys_nodisturb_desc">Ganti aplikasi yang bisa memberi notifikasi bahkan ketika mode Jangan ganggu aktif</string>
+    <string name="android_sys_wallpaper_name"><![CDATA[Wallpaper & gaya]]></string>
+    <string name="android_sys_wallpaper_desc">Layar utama, layar kunci</string>
+    <string name="common_install">Pasang</string>
+    <string name="app_force_kill">Hentikan Paksa</string>
+    <string name="force_kill_sent_desc">Permintaan untuk menghentikan paksa aplikasi terkirim ke sistem Android : %s</string>
+    <string name="force_kill_sent_title">Aplikasi di hentikan paksa</string>
+    <string name="install_shortcut_dialog_title">Pasang Pintasan</string>
+    <string name="android_sys_battery_name">Baterai</string>
+    <string name="android_sys_battery_desc">Penggunaan baterai, pengaturan penghemat baterai</string>
+    <string name="android_sys_display_name">Tampilan</string>
+    <string name="android_sys_display_desc">Wallpaper, tidur, ukuran font</string>
+    <string name="android_sys_sound_name">Suara</string>
+    <string name="android_sys_sound_desc">Volume, getar, Jangan Ganggu</string>
+    <string name="android_sys_storage_name">Penyimpanan</string>
+    <string name="android_sys_storage_desc">Penyimpanan bebas, info perangkat penyimpanan</string>
+    <string name="android_sys_privacy_name">Privasi</string>
+    <string name="android_sys_privacy_desc">Izin, aktifias akun, data pribadi</string>
+    <string name="android_sys_location_name">Lokasi</string>
+    <string name="android_sys_location_desc">Aplikasi yang bisa mengakses lokasi</string>
+    <string name="android_sys_security_name">Keamanan</string>
+    <string name="android_sys_security_desc">Kunci layar, sidik jari</string>
+    <string name="android_sys_accessibility_name">Aksesibiltas</string>
+    <string name="android_sys_accessibility_desc">Pembaca layar, tampilan, kendali interaksi</string>
+    <string name="android_sys_systeminfo_name">Sistem</string>
+    <string name="android_sys_systeminfo_desc">Bahasa, gestur, waktu, backup</string>
+    <string name="android_sys_locale_name"><![CDATA[Bahasa & masukan]]></string>
+    <string name="android_sys_locale_desc">Bahasa tampilan, format angka, sistem masukan</string>
+    <string name="android_sys_datetime_name"><![CDATA[Tanggal & waktu]]></string>
+    <string name="android_sys_datetime_desc">Tanggal, waktu, zona waktu</string>
+    <string name="android_sys_developer_name">Opsi pengembang</string>
+    <string name="android_sys_developer_desc">Pengaturan pengembangan aplikasi, oprekan graifk</string>
+    <string name="android_sys_deviceinfo_name">Tentang perangkat</string>
+    <string name="android_sys_deviceinfo_desc">Versi Android, alamat IP, IMEI</string>
+    <string name="settings_system_test_option_desc">Aktifkan Peluncur Cross hingga muat ulang selanjutnya</string>
+    <string name="settings_system_test_option_value_on">Diaktifkan</string>
+    <string name="settings_system_test_option_value_off">Aktifkan</string>
+    <string name="settings_system_test_display_title">Cross Launcher tidak asli</string>
+    <string name="settings_system_test_display_desc">Salinan Cross Launcher katanya tidak asli</string>
+    <string name="error_fail_to_find_at_market_title">Gagal meluncurkan Toko Apl</string>
+    <string name="error_fail_to_find_at_market_desc">Terjadi kesalahan ketika mencoba meluncurkan Toko Apl</string>
+    <string name="settings_system_disable_splash_message_title">Non-aktifkan Pesan Boot</string>
+    <string name="settings_system_disable_splash_message_desc">Pesan epilepsi dan kejang-kejang di layar cold boot</string>
+    <string name="settings_category_audio_name">Pengaturan Audio</string>
+    <string name="settings_category_audio_title">Volume dan main balik audio</string>
+    <string name="settings_system_disable_video_icon_name">Non-aktifkan Ikon Video</string>
+    <string name="settings_system_disable_video_icon_desc">Jangan muat atau mainkan ikon video</string>
+    <string name="settings_wave_set_name">Jadikan sebagai Wallpaper</string>
+    <string name="settings_wave_set_desc">Buka pengaturan untuk menjadikan XMB Wave sebagai latar belakang</string>
+    <string name="settings_wave_make_internal_name">Jadikan sebagai Lapisan Internal</string>
+    <string name="waveset_behavior_style_ps3_classic">Klasik</string>
+    <string name="waveset_behavior_style_ps3_dynamic">Dinamis</string>
+    <string name="waveset_behavior_style_psp_centered">Tengah</string>
+    <string name="waveset_behavior_style_psp_classic">Bawah</string>
+    <string name="setting_wave_make_internal_desc">Gunakan latar belakang Wave dalam peluncur sendiri, untuk perangkat yang tidak mendukung latar belakang hidup</string>
+    <string name="dlg_set_wallpaper_title">Jadikan Latar Belakang</string>
+    <string name="common_next">Selanjutnya</string>
+    <string name="common_finish">Selesai</string>
+    <string name="settings_wave_theme_name">Tema Wave</string>
+    <string name="settings_wave_theme_desc">Ubah gaya, kecepatan dan warna dari latar belakang wave</string>
+    <string name="home_screen_exit_name">Tutup</string>
+    <string name="home_screen_exit_desc">Tutup ke Peluncur Bawaan</string>
+    <string name="waveset_color_foreground">Warna Gelombang Kustom</string>
+    <string name="waveset_color_background">Warna Latar Kustom</string>
+    <string name="string_systeminfo_launcher_ver">Versi Cross Launcher</string>
+    <string name="settings_wave_apply_as_layer_dlg_text_main">Mengganti cara penggunaan Lapisan Wave memerlukan peluncur untuk di mulai ulang. Lanjutkan mengubah nilai dan mulai ulang peluncur?</string>
+    <string name="common_reboot">Mulai Ulang</string>
+    <string name="settings_common_settings_unavailable">Pengaturan tidak tersedia</string>
+    <string name="settings_wave_live_wallpaper_unsupported">Perangkat mungkin tidak mendukung latar belakang hidup</string>
+    <string name="common_reboot_required">Perlu Mulai Ulang</string>
+    <string name="app_desc">Peluncur bergaya shell yang berfokus pada kontroler untuk perangkat genggam Android dan TV</string>
+    <string name="waveset_daynight_cycle">Siang/Malam</string>
+    <string name="waveset_bg_month_number">Warna Ltr Blkg</string>
+    <string name="waveset_bg_month_custom">Disesuaikan</string>
+    <string name="waveset_bg_month_current">Bulan Ini</string>
+    <string name="waveset_bg_is_not_custom">Tidak Dikustom</string>
+    <string name="waveset_test_press_right">Tekan {right}</string>
+    <string name="waveset_test_swipe_right">Geser ke Kanan</string>
+    <string name="waveset_wave_not_active">Latar Belakang Wave tidak sedang aktif, Pratinjau tidak akan disediakan.</string>
+    <string name="waveset_dlg_touchscreen_usage">Layar Sentuh : Swipe untuk mengganti nilai, item dan halaman</string>
+    <string name="waveset_dlg_test_to_wave">Tes ke Wallpaper</string>
+    <string name="waveset_dlg_page_number">Halaman %1$d/%2$d</string>
+    <string name="settings_system_test_option_name">Aktifkan Cross Launcher</string>
+  <string name="reboot_dlg_confirm_content">Mulai ulang peluncur?</string>
+  <string name="home_screen_reboot_desc">Mulai Ulang apl peluncur sepenuhnya.</string>
+  <string name="reboot_dlg_confirm_title">Mulai Ulang</string>
+  <string name="common_not_supported">Tidak mendukung</string>
+  <string name="string_systeminfo_hardware">Prgkt. Keras Peranti</string>
+  <string name="string_systeminfo_board">Papan Sirkuit Peranti</string>
+  <string name="string_systeminfo_android_security_patch">Patch Keamanan</string>
+    <string name="waveset_category_behavior">Perilaku Wave</string>
+  <string name="settings_systeminfo_opengles_ver">Versi OpenGL ES</string>
+  <string name="settings_systeminfo_vulkan_ver">Versi Vulkan</string>
+  <string name="settings_systeminfo_bootloader">BIOS / Pemuat Boot</string>
+    <string name="settings_systeminfo_storage_usage">Penyimpanan Bebas</string>
+  <string name="settings_systeminfo_ram_usage">RAM Bebas</string>
+  <string name="setting_show_gameboot_desc">Play gameboot animation when launching application</string>
+    <string name="dlg_set_search_query">Cari di Kategori ini (kosongkn utk. batalkn pcarian)</string>
+  <string name="dlg_rearrange_categories">Urutkan Kategori</string>
+    <string name="rearrange_start">Pindah</string>
+  <string name="rearrange_end">Pindah Kesini</string>
+  <string name="settings_display_refsize_name">Resolusi Panutan</string>
+  <string name="settings_display_refsize_desc">Atur resolusi gambaran lalu diskalakan ke layar perangkat</string>
+  <string name="settings_system_rearrange_category_name">Urutkan Kategori</string>
+  <string name="settings_system_rearrange_category_desc">Atur Urutan menu menyamping di menu CrossLauncher</string>
+  <string name="common_not_found">Tidak Ditemukan</string>
+    <string name="settings_display_hide_statusbar_name">Sembunyikan Bilah Status</string>
+  <string name="settings_display_hide_statusbar_desc">Jangan tampilkan bilah status di kanan-atas layar</string>
+    <string name="xmb_view_content_description">Aplikasi ini ditujukan untuk pengguna yang memiliki pandangan sempurna dan tunanetra sebagian, kami tidak memberikan fitur aksesibilitas tambahan untuk pengguna tunanetra, Silahkan tutup aplikasi ini segera dan copot pemasangan aplikasi ini jika merasa tidak dengan sengaja memasang aplikasi ini.</string>
+  <string name="menu_app_info">Info Apl</string>
+  <string name="dlg_info_name">Judul</string>
+  <string name="dlg_info_desc">Deskripsi</string>
+  <string name="dlg_info_album">Album</string>
+  <string name="dlg_info_hidden">Tersembunyi</string>
+  <string name="dlg_info_category">Kategori</string>
+  <string name="dlg_info_apk_size">Ukuran Paket</string>
+  <string name="dlg_info_update">Diperbarui</string>
+  <string name="dlg_info_version">Versi</string>
+  <string name="dlg_info_pkg_name">Nama Paket</string>
+  <string name="dlg_info_rename">Ganti nama apl</string>
+  <string name="settings_system_show_hidden_app_desc">Tampilkan apl yang disembunyikan, dimatikan otomatis setelah peluncur dimulai ulang</string>
+  <string name="settings_system_show_hidden_app_name">Tampilkan Apl Tersembunyi</string>
+  <string name="category_shortcut">Pintasan</string>
+  <string name="dlg_info_redesc">Ganti deskripsi apl</string>
+  <string name="custom_package_error_no_intent">Tidak ada intent yang dikembalikan</string>
+  <string name="common_toggle">Tukar</string>
+  <string name="package_import_unknown_error">Terjadi kesalahan yang tidak diketahui</string>
+  <string name="package_import_error_corrupt">Paket rusak</string>
+  <string name="package_import_error_type_mismatch">Jenis berkas salah, bukan berkas XPKG</string>
+  <string name="package_import_status_loading">Memuat berkas paket</string>
+  <string name="waveset_category_color">Warna Gelombang</string>
+  <string name="waveset_behavior_style">Gaya Gelombang</string>
+  <string name="waveset_behavior_speed">Kcepatn. Gelombang</string>
+  <string name="waveset_color_back_top">Ltr Blkg Atas</string>
+  <string name="waveset_color_back_bottom">Ltr Blkg Bawah</string>
+  <string name="waveset_color_fore_top">Pinggir Gelombang</string>
+  <string name="waveset_color_fore_bottom">Tengah Gelombang</string>
+  <string name="setting_display_button_type_name">Gaya Tombol</string>
+  <string name="setting_display_button_type_desc">Tombol konsol mana yang ditampilkan di layar</string>
+  <string name="common_default">Bawaan</string>
+  <string name="settings_display_background_dim_name">Kegelapan Latar Belakang</string>
+  <string name="settings_display_background_dim_desc">Tingkat penggelapan pada lapisan bawah menu</string>
+  <string name="settings_display_statusbar_fmt_name">Format Teks Bilah Status</string>
+  <string name="settings_display_statusbar_fmt_desc">Format teks yang ditampilkan di bilah status (jika terlihat)</string>
+  <string name="common_save">Simpan</string>
+  <string name="dlg_edit_status_bar_format">Ubah Format Bilah Status</string>
+  <string name="common_edit">Ubah</string>
+  <string name="settings_audio_master_volume_name">Volume Utama</string>
+  <string name="settings_audio_master_volume_desc">Pengali volume utama</string>
+  <string name="debug_custom_resource_dialog_title">Daftar sumber daya kustomisasi</string>
+  <string name="dbg_custom_file_list">Berkas terkustomisasi</string>
+  <string name="statusbarfmt_dlg_help">:: Arahan Pemformatan ::\n
+      Tiap teks yang ada di dalam kurung kurawal akan diganti dengan teks yang sesuai. Contoh nya\n
+      \"-( {operator} {sdf:dd/MM hh:mm:ss a} )-\" akan diformat menjadd \"-( HardBanks 28/2 10:54:39 AM )-\"\n \n
+      :: Teks Kunci Yang Didukung ::\n
+      &#8226; {operator} -> Menampilkan penyedia internet yang aktif (Paket Data, Wi-Fi, Ethernet)\n
+      &#8226; {sdf:[format]} -> Format Sederhana Tanggalan Java, \'format\' harus berisi format\n
+      &#8212; SimpleDateFormat yang valid, cth. : \"{sdf:dd/MM/yyyy}\" akan diformat menjadi \"28/2/2022\"\n
+      &#8212; Untuk setiap kombinasi yang sah, silahkan kunjungi\n
+      &#8212; https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html\n
+      &#8226; {charging} -> Jika sedang mengisi daya, akan diganti dengan emoji petir\n
+      &#8226; {battery} -> Persen Baterai (0-100), tidak termasuk simbol persen\n
+      &#8226; {battery_f(:[decimal])} -> Persen Baterai dalam desimal (0.0-100.0), tidak termasuk simbol persen\n
+      &#8212; Bagian \'decimal\' adalah opsional, diisi dengan berapa banyak angka dibelakang koma\n
+    </string>
+    <string name="common_apply">Terapkan</string>
+  <string name="settings_system_android_bar_name">Keterlihatan Bilah Sistem</string>
+  <string name="settings_system_android_bar_desc">Bilah sistem mana saja yang akan ditampilkan.</string>
+  <string name="system_bar_visible_all">Semua</string>
+  <string name="system_bar_visible_status">Bilah Status</string>
+  <string name="system_bar_visible_navigation">Bilah Navigasi</string>
+  <string name="system_bar_visible_none">Tidak ada</string>
+  <string name="item_orientation_desc">Kemana perangkat mengarah ketika menampilkan peluncur ini</string>
+    <string name="dbg_custom_throw_unhandled_exception">Lempar Exception Tak Tertangani</string>
+
+  <string name="dlg_legacyicon_title">Ltr Blkg Ikon Apl Lawas</string>
+  <string name="settings_system_legacy_icon_background_desc">Beri latar belakang pada apl lawas dengan ikon non-adaptif</string>
+  <string name="dbg_bitman_info">Info Manajer Bitmap</string>
+
+  <string name="dlg_legacyicon_material_you">Material You</string>
+  <string name="dlg_legacyicon_you_accent">Aksen</string>
+  <string name="dlg_legacyicon_you_brightness">Tingkat</string>
+  <string name="color_red">Merah</string>
+  <string name="color_alpha">Alfa</string>
+  <string name="color_blue">Biru</string>
+  <string name="color_green">Hijau</string>
+  <string name="Mode">Mode</string>
+  <string name="dlg_legacyicon_material_you_accent_1">Aksen 1</string>
+  <string name="dlg_legacyicon_material_you_accent_2">Aksen 2</string>
+  <string name="dlg_legacyicon_material_you_accent_3">Aksen 3</string>
+  <string name="common_enabled">Aktif</string>
+  <string name="common_disabled">Nonaktif</string>
+  <string name="dlg_legacyicon_update_info">Ikon aplikasi lawas tidak akan diupdate kecuali ikon dimuat ulang dengan mengeluarkan dan memasukkan lagi ikon ke layar bagian atas dan bawah.</string>
+  <string name="settings_audio_bgm_volume_name">Volume Musik</string>
+  <string name="settings_audio_bgm_volume_desc">Untuk musik menu</string>
+  <string name="settings_audio_sysbgm_volume_name">Volume Musik Sistem</string>
+  <string name="settings_audio_sysbgm_volume_desc">Untuk musik coldboot dan gameboot</string>
+  <string name="settings_audio_sfx_volume_name">Volume Suara Efek</string>
+  <string name="settings_audio_sfx_volume_desc">Untuk efek dan suara</string>
+
+  <string name="settings_audio_sfx_reload_name">Muat Ulang Efek Suara</string>
+  <string name="settings_audio_sfx_reload_desc">Muat ulang efek suara yang sudah dimuat</string>
+  <string name="settings_system_visible_app_desc_name">Deskripsi Aplikasi</string>
+  <string name="settings_system_visible_app_desc_desc">Apa yang ditampilkan di bawah nama aplikasi</string>
+  <string name="settings_system_visible_desc_val_date">Tanggal</string>
+  <string name="settings_system_visible_desc_val_filesize">Ukuran Paket</string>
+  <string name="settings_system_visible_desc_val_none">Tidak ada</string>
+  <string name="settings_system_visible_desc_val_modid">ID Kustomisasi</string>
+  <string name="settings_system_visible_desc_val_packagename">Nama Paket</string>
+  <string name="settings_system_visible_desc_val_nkfile">Ukuran dan Tanggal</string>
+  <string name="settings_system_detailed_mem_name">Tmplkn Memori Rinci</string>
+  <string name="settings_system_detailed_mem_desc">Tampilikan informasi memori yang lebih rinci dibawah FPS</string>
+  <string name="dlg_iconprior_warning_top">Ikon di paling atas dimuat dulu, jika ikon tidak ada atau tidak bisa dimuat, maka urutan bawahnya akan dimuat hingga sampai di "Ikon Lawas". Ikon lawas selalu diberikan oleh OS meskipun di dalam aplikasi nya sendiri tidak ada</string>
+  <string name="dlg_iconprior_warning_btm">Jika aplikasi memiliki ikon kustomisasi, maka ikon tersebut akan selalu dipakai terlepas urutan ini.</string>
+  <string name="dlg_iconprior_priority_app_icon">Ikon Lawas</string>
+  <string name="dlg_iconprior_priority_app_icon_adaptive">Ikon Adaptif</string>
+  <string name="dlg_iconprior_priority_app_banner">Banner Lawas (TV)</string>
+  <string name="dlg_iconprior_priority_app_banner_adaptive">Banner Adaptif (TV)</string>
+  <string name="settings_system_reorder_icon_loading_name">Prioritas Muat Ikon Apl</string>
+  <string name="settings_system_reorder_icon_loading_desc">Ikon Apl mana yang akan dicek-muat dulu.</string>
+  <string name="settings_system_reorder_icon_loading_value">%s lebih dulu</string>
+
+  <string name="shortcut_failed_to_launch_title">Gagal memulai Pintasan</string>
+  <string name="shortcut_failed_to_launch_desc">Aktifitas %s tidak ditemukan atau dilarang untuk diluncurkan dari CrossLauncher.</string>
+  <string name="error_pkgi_no_media">Tidak menemukan media yang bisa ditulis</string>
+  <string name="setting_license_name">Lisensi Sumber Terbuka</string>
+  <string name="setting_license_desc">Tampilkan lisensi sumber terbuka dari semua komponen yang dipakai peluncur</string>
+  <string name="settings_system_prioritize_tv_intent_name">Dahulukan Intent TV</string>
+  <string name="settings_system_prioritize_tv_intent_desc">Pada TV, luncurkan Intent untuk TV / Leanback dan luncurkan Intent biasa jika tidak ditemukan</string>
+  <string name="shortcut_launch">Luncurkan</string>
+  <string name="shortcut_remove">Hapus</string>
+  <string name="dlg_confirm_confirm">Konfirmasi</string>
+  <string name="dlg_confirm_cancel">Batalkan</string>
+  <string name="shortcut_remove_confirm_text">Yakin menghapus pintasan ini?\n\n%s</string>
+  <string name="shortcut_rename">Ganti Nama</string>
+  <string name="category_photo">Foto</string>
+  <string name="common_change">Ganti</string>
+  <string name="error_category_switch_failed_title">Gagal memindah kategori Apl</string>
+  <string name="error_category_switch_failed_desc">Apl dengan id \"%1$s\" tidak bisa dipindahkan dari kategori dengan id \"%2$s\" ke \"%3$s\".\n\nTetapi, keadaan Apl sudah disimpan, memulai ulang peluncur akan memindahkan Apl ke kategori yang dipilih.</string>
+  <string name="settings_system_video_icon_mode_name">Mainkan Ikon Animasi</string>
+  <string name="settings_system_video_icon_mode_desc">Kapan ikon video akan dimainkan</string>
+  <string name="system_video_mode_disabled">Mati</string>
+  <string name="system_video_mode_all_time">Ketika Tampil</string>
+  <string name="system_video_mode_selected_only">Ketika Dipilih</string>
+  <string name="settings_system_update_name">Pembaruan Sistem</string>
+  <string name="settings_system_update_desc">Memperbarui perangkat lunak sistem pada peluncur ini</string>
+  <string name="system_update_check">Periksa</string>
+  <string name="system_update_download">Unduh</string>
+  <string name="updater_found_update_title">Pembaruan SIstem Ditemukan</string>
+  <string name="updater_found_update_desc"><![CDATA[Anda bisa mengecek dan mengunduh pembaruan lewat Pengaturan > Pembaruan Sistem\natau anda bisa membuka halaman Release di GitHub dan mengunduh dari sana]]></string>
+  <string name="updater_download_failed_title">Gagal mengunduh pembaruan</string>
+  <string name="updater_download_failed_unknown_error">Mengalami galat yang tidak diketahui sebabnya</string>
+
+  <string name="settings_category_media_name">Pengaturan Media</string>
+  <string name="settings_category_media_desc">Perilaku pendaftaran dan  item media</string>
+  <string name="permission_granted">Izin diberikan</string>
+  <string name="permission_not_granted">Izin tidak diberikan</string>
+  <string name="settings_media_request_permission_name">Minta Izin Pembacaan Media</string>
+  <string name="settings_media_request_permission_desc">Apakah peluncur memiliki izin untuk membaca media?</string>
+  <string name="error_menubgm_load_nopath">Gagal meminta berkas BGM Sistem</string>
+  <string name="picker_pick_bgm">Pilih BGM Sistem</string>
+  <string name="error_menubgm_copy_empty">Gagal menemukan direktori tujuan, mungkin karena kesalahan sistem Android.</string>
+  <string name="error_menubgm_source_null">Berkas kosong, mungkin karena galat pada apl pemilih berkas atau keamanan yang terlalu ketat</string>
+  <string name="error_menubgm_copy_source_not_found">Berkas sumber tidak ditemukan. Mungklin karena kesalahan apl pemilih atau keamanan yang terlalu ketat</string>
+  <string name="settings_audio_menubgm_volume_name">Volume Musik Menu</string>
+  <string name="settings_audio_menubgm_volume_desc">Volume musik untuk latar belakang menu (jika dimuat)</string>
+  <string name="settings_audio_menubgm_pick_name">Pilih Berkas Musik Menu</string>
+  <string name="settings_audio_menubgm_pick_desc">Pilih berkas audio sebagai musik yang terus dimainkan di latar belakang</string>
+  <string name="settings_audio_menubgm_delete_name">Hapus Berkas Musik Menu</string>
+  <string name="settings_audio_menubgm_delete_desc">Hapus berkas audio untuk musik menu</string>
+  <string name="media_open">Buka</string>
+  <string name="media_open_with">Buka dengan…</string>
+  <string name="media_play">Mainkan</string>
+  <string name="media_delete">Hapus</string>
+  <string name="media_delete_confirmation">Hapus \"%s\" ?\n\nOperasi tidak bisa diurungkan.</string>
+  <string name="media_share">Bagikan</string>
+  <string name="error_setting_not_found">Pengaturan Tidak Ditemukan</string>
+  <string name="error_setting_not_found_description">Peluncur gagal membuka pengaturan untuk %1$s.
+\n
+\nAlasan Teknis : %2$s
+\n
+\nMaukah anda membuka halaman pengaturan utama sebagai gantinya, agar anda bisa mengakses secara manual?</string>
+  <string name="android_dbg_setting_invalid_page_name">Buka Pengaturan Tidak Nyata</string>
+  <string name="android_dbg_setting_invalid_page_desc">Buka halaman pengaturan yang tidak ada, untuk tes perangkat dengan pengaturan yang tidak lengkap</string>
+  <string name="common_loading">Memuat…</string>
+  <string name="error_setting_wait_dialog_closing_msg">Menutup…\n\nJika dialog tidak segera menutup, tekan Konfirmasi atau Batalkan</string>
+  <string name="android_dbg_setting_self_name">Buka Xmb Sebagai Pengaturan</string>
+  <string name="android_dbg_setting_self_desc">Harusnya memiliki efek yang sama dengan meluncurkan pengaturan yang terdaftar tapi aslinya tidak ada</string>
+</resources>
