@@ -90,7 +90,7 @@ class XtfPackageSubmodule(private val vsh: Vsh) : IVshSubmodule {
                         val included = linkedSetOf<String>()
                         addText(zip, "PARAM.INI", createParamIni())
 
-                        addSharedPrefsIfPresent(zip, PreferenceSubmodule.PREF_NAME, "prefs/xRegistry.sys.xml", included)
+                        addSanitizedLauncherPrefsIfPresent(zip, included)
                         addSharedPrefsIfPresent(zip, WAVE_PREF_NAME, "prefs/libwave_setting.xml", included)
                         addDirectoryIfPresent(zip, appExternalFile(IconManager.CUSTOM_ICON_DIR), "$CUSTOM_ROOT/${IconManager.CUSTOM_ICON_DIR}", "custom_icons", included)
                         addColdbootOverridesIfPresent(zip, included)
@@ -191,6 +191,22 @@ class XtfPackageSubmodule(private val vsh: Vsh) : IVshSubmodule {
             addFile(zip, file, zipPath)
             included.add("prefs:$prefName")
         }
+    }
+
+    private fun addSanitizedLauncherPrefsIfPresent(
+        zip: ZipOutputStream,
+        included: MutableSet<String>
+    ) {
+        val file = sharedPrefsFile(PreferenceSubmodule.PREF_NAME)
+        if (!file.exists() || !file.isFile) return
+
+        var xml = file.readText(Charsets.UTF_8)
+        val exportableLaunchItems = vsh.serializeCustomLaunchItemRecords(
+            vsh.getExportableCustomLaunchItemRecords()
+        )
+        xml = writeSharedPrefString(xml, PrefEntry.CUSTOM_LAUNCH_ITEMS, exportableLaunchItems)
+        addText(zip, "prefs/xRegistry.sys.xml", xml)
+        included.add("prefs:${PreferenceSubmodule.PREF_NAME}")
     }
 
     private fun addDirectoryIfPresent(

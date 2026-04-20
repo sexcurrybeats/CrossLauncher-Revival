@@ -1,6 +1,6 @@
 # XTF compatibility notes
 
-XTF is CrossLauncher’s portable shell-state package format.
+XTF is CrossLauncher's portable shell-state package format.
 
 It is meant for moving launcher customization between installs or devices that are running compatible builds of CrossLauncher.
 
@@ -27,7 +27,9 @@ It is meant for moving launcher customization between installs or devices that a
 
 New exports no longer include per-app or per-game icon/backdrop media.
 
-That means exported XTF packages are now focused on the main shell identity and launcher state rather than acting like a full per-app media backup.
+New exports also do not include custom file or ROM launch items.
+
+That means exported XTF packages are now focused on the main shell identity and launcher state rather than acting like a full per-app media or launcher-shortcut backup.
 
 ## Making and sharing a theme
 

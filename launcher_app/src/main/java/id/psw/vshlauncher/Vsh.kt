@@ -48,6 +48,10 @@ import kotlin.collections.ArrayList
 import kotlin.system.exitProcess
 
 class Vsh : Application() {
+    data class CustomCategoryRecord(
+        val categoryId: String,
+        val title: String
+    )
 
     data class CustomLaunchItemRecord(
         val itemId: String,
@@ -713,11 +717,60 @@ class Vsh : Application() {
                 lastSelectedItemId = NODE_APPS_MEMORY_STICK
             })
 
+            loadCustomCategories()
             loadCustomNodes()
             loadCustomLaunchItems()
             categories.sortBy { it.sortIndex }
         }catch(e:Exception){
 
+        }
+    }
+
+    private fun encodeCustomCategoryRecord(record: CustomCategoryRecord): String {
+        return listOf(record.categoryId, record.title).joinToString(":") { encodeLaunchField(it) }
+    }
+
+    private fun decodeCustomCategoryRecord(serialized: String): CustomCategoryRecord? {
+        return try {
+            val parts = serialized.split(":")
+            if (parts.size < 2) return null
+            CustomCategoryRecord(
+                decodeLaunchField(parts[0]),
+                decodeLaunchField(parts[1])
+            )
+        } catch (_: Exception) {
+            null
+        }
+    }
+
+    fun getCustomCategoryRecords(): List<CustomCategoryRecord> {
+        return M.pref.get(PrefEntry.CUSTOM_CATEGORIES, "")
+            .split("|")
+            .mapNotNull { entry ->
+                if (entry.isBlank()) null else decodeCustomCategoryRecord(entry)
+            }
+    }
+
+    private fun writeCustomCategoryRecords(records: List<CustomCategoryRecord>) {
+        M.pref.set(
+            PrefEntry.CUSTOM_CATEGORIES,
+            records.joinToString("|") { encodeCustomCategoryRecord(it) }
+        ).push()
+    }
+
+    private fun loadCustomCategories() {
+        getCustomCategoryRecords().forEachIndexed { index, record ->
+            if (categories.any { it.id == record.categoryId }) return@forEachIndexed
+            categories.add(
+                XmbItemCategory(
+                    this,
+                    record.categoryId,
+                    R.string.category_apps,
+                    R.drawable.category_apps,
+                    defaultSortIndex = 100 + index,
+                    displayNameProvider = { record.title }
+                )
+            )
         }
     }
 
@@ -879,6 +932,83 @@ class Vsh : Application() {
         }
     }
 
+    fun addCustomCategory(name: String): String? {
+        val cleanName = name.trim()
+        if (cleanName.isBlank()) return null
+
+        val slug = cleanName.lowercase()
+            .replace(Regex("[^a-z0-9]+"), "_")
+            .trim('_')
+            .ifBlank { "category" }
+
+        var categoryId = "custom_category_$slug"
+        if (categories.any { it.id == categoryId }) {
+            categoryId = "${categoryId}_${System.currentTimeMillis()}"
+        }
+
+        categories.add(
+            XmbItemCategory(
+                this,
+                categoryId,
+                R.string.category_apps,
+                R.drawable.category_apps,
+                defaultSortIndex = (categories.maxOfOrNull { it.sortIndex } ?: 8) + 1,
+                displayNameProvider = { cleanName }
+            )
+        )
+        categories.sortBy { it.sortIndex }
+        writeCustomCategoryRecords(getCustomCategoryRecords() + CustomCategoryRecord(categoryId, cleanName))
+        return categoryId
+    }
+
+    fun removeCustomCategory(categoryId: String) {
+        if (!categoryId.startsWith("custom_category_")) return
+        val category = categories.find { it.id == categoryId } ?: return
+        val removedNodeIds = category.content.filterIsInstance<XmbNodeItem>()
+            .filter { !it.builtInDefault }
+            .map { it.id }
+            .toSet()
+
+        val currentNodes = M.pref.get(PrefEntry.CUSTOM_NODES, "")
+        val keptNodes = currentNodes.split("|").filter { entry ->
+            if (entry.isBlank()) return@filter false
+            !entry.startsWith("$categoryId:")
+        }
+        M.pref.set(PrefEntry.CUSTOM_NODES, keptNodes.joinToString("|")).push()
+
+        val rehomedLaunchItems = getCustomLaunchItemRecords().map { record ->
+            when {
+                record.categoryId == categoryId -> record.copy(categoryId = ITEM_CATEGORY_APPS, parentNodeId = "")
+                record.parentNodeId in removedNodeIds -> record.copy(parentNodeId = "")
+                else -> record
+            }
+        }
+        writeCustomLaunchItemRecords(rehomedLaunchItems)
+
+        allAppEntries.forEach { app ->
+            when {
+                app.appCategory == categoryId -> {
+                    app.appCategory = ITEM_CATEGORY_APPS
+                    app.appNodeOverride = ""
+                }
+                app.appNodeOverride in removedNodeIds -> {
+                    app.appNodeOverride = ""
+                }
+            }
+        }
+
+        categories.removeAll { it.id == categoryId }
+        writeCustomCategoryRecords(getCustomCategoryRecords().filterNot { it.categoryId == categoryId })
+
+        if (selectedCategoryId == categoryId) {
+            selectedCategoryId = ITEM_CATEGORY_APPS
+            selectedItemId = categories.find { it.id == ITEM_CATEGORY_APPS }?.lastSelectedItemId ?: ""
+        }
+
+        loadCustomLaunchItems()
+        M.apps.reloadAppList()
+    }
+
     fun openInternetSearch() {
         openUrlOrNotify("https://www.google.com/search?q=", R.string.error_no_browser_description)
     }
@@ -996,12 +1126,20 @@ class Vsh : Application() {
         return migrated
     }
 
-    private fun writeCustomLaunchItemRecords(records: List<CustomLaunchItemRecord>) {
+    fun getExportableCustomLaunchItemRecords(): List<CustomLaunchItemRecord> {
+        return getCustomLaunchItemRecords().filter { it.type != "file" }
+    }
+
+    fun serializeCustomLaunchItemRecords(records: List<CustomLaunchItemRecord>): String {
         val arr = JSONArray()
         records.forEach { arr.put(customLaunchRecordToJson(it)) }
+        return arr.toString()
+    }
+
+    private fun writeCustomLaunchItemRecords(records: List<CustomLaunchItemRecord>) {
         M.pref.set(
             PrefEntry.CUSTOM_LAUNCH_ITEMS,
-            arr.toString()
+            serializeCustomLaunchItemRecords(records)
         ).push()
     }
 

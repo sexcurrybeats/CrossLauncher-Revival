@@ -13,7 +13,8 @@ import id.psw.vshlauncher.types.XmbItem
 class XmbItemCategory(
     vsh: Vsh, private val cateId:String,
     val strId : Int, private val iconId: Int,
-    val sortable: Boolean = false, defaultSortIndex : Int
+    val sortable: Boolean = false, defaultSortIndex : Int,
+    private val displayNameProvider: (() -> String)? = null
     ) : XmbItem(vsh) {
     private val _content = ArrayList<XmbItem>()
     private fun _postNoLaunchNotification(xmb: XmbItem){
@@ -33,7 +34,7 @@ class XmbItemCategory(
     override val isHidden: Boolean
         get() = vsh.isCategoryHidden(id)
 
-    override val displayName: String get() = vsh.getString(strId)
+    override val displayName: String get() = displayNameProvider?.invoke() ?: vsh.getString(strId)
     override val icon: Bitmap get() = _icon.bitmap
     override val id: String get() = cateId
     private var _sortIndex = 0

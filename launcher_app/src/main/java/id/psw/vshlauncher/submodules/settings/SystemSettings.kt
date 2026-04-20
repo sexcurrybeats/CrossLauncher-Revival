@@ -698,6 +698,11 @@ class SystemSettings(private val vsh: Vsh) : ISettingsCategories(vsh) {
                 R.string.settings_system_manage_create_name,
                 R.string.settings_system_manage_create_desc
             )
+            val customCategories = XmbSettingsCategory(vsh, "settings_system_manage_custom_categories",
+                R.drawable.category_apps,
+                R.string.settings_system_manage_custom_categories_name,
+                R.string.settings_system_manage_custom_categories_desc
+            )
             val customFolders = XmbSettingsCategory(vsh, "settings_system_manage_custom_folders",
                 R.drawable.category_apps,
                 R.string.settings_system_manage_custom_folders_name,
@@ -713,6 +718,20 @@ class SystemSettings(private val vsh: Vsh) : ISettingsCategories(vsh) {
                 R.string.settings_system_manage_builtin_nodes_name,
                 R.string.settings_system_manage_builtin_nodes_desc
             )
+
+            createItems.content.add(XmbSettingsItem(vsh, "settings_system_add_category",
+                R.string.settings_system_add_category, R.string.empty_string,
+                R.drawable.category_apps, { "" }
+            ) {
+                id.psw.vshlauncher.views.nativedlg.NativeEditTextDialog(vsh)
+                    .setTitle(vsh.getString(R.string.settings_system_category_name))
+                    .setOnFinish { name ->
+                        if (name.isNotBlank()) {
+                            vsh.addCustomCategory(name)
+                            refreshNodes()
+                        }
+                    }.show()
+            })
 
             createItems.content.add(XmbSettingsItem(vsh, "settings_system_add_node",
                 R.string.settings_system_add_node, R.string.empty_string,
@@ -768,14 +787,40 @@ class SystemSettings(private val vsh: Vsh) : ISettingsCategories(vsh) {
                 R.string.settings_system_add_file_launch_item, R.string.empty_string,
                 R.drawable.ic_folder, { "" }
             ) {
-                id.psw.vshlauncher.views.nativedlg.NativeEditTextDialog(vsh)
-                    .setTitle(vsh.getString(R.string.settings_system_launch_item_name))
-                    .setOnFinish { name ->
-                        if (name.isNotBlank()) {
-                            vsh.startCustomFileLaunchItemPicker(Vsh.ITEM_CATEGORY_GAME, name)
-                        }
-                    }.show()
+                val menu = arrayListOf<XmbMenuItem>()
+                vsh.categories.forEachIndexed { index, category ->
+                    menu.add(XmbMenuItem.XmbMenuItemLambda({ category.displayName }, { false }, index) {
+                        vsh.xmbView?.showSideMenu(false)
+                        id.psw.vshlauncher.views.nativedlg.NativeEditTextDialog(vsh)
+                            .setTitle(vsh.getString(R.string.settings_system_launch_item_name))
+                            .setOnFinish { name ->
+                                if (name.isNotBlank()) {
+                                    vsh.startCustomFileLaunchItemPicker(category.id, name)
+                                }
+                            }.show()
+                    })
+                }
+                vsh.xmbView?.showSideMenu(menu)
             })
+
+            vsh.getCustomCategoryRecords().forEach { record ->
+                customCategories.content.add(XmbSettingsItem(vsh, "category_${record.categoryId}",
+                    { record.title }, { vsh.getString(R.string.settings_system_category_custom_type) },
+                    R.drawable.category_apps, { "" }
+                ) {
+                    vsh.xmbView?.showDialog(id.psw.vshlauncher.views.dialogviews.ConfirmDialogView(
+                        vsh.safeXmbView,
+                        record.title,
+                        R.drawable.category_setting,
+                        vsh.getString(R.string.settings_system_category_delete_confirm)
+                    ) { confirm ->
+                        if (confirm) {
+                            vsh.removeCustomCategory(record.categoryId)
+                            refreshNodes()
+                        }
+                    })
+                })
+            }
 
             val customData = M.pref.get(id.psw.vshlauncher.PrefEntry.CUSTOM_NODES, "")
             if (customData.isNotEmpty()) {
@@ -912,6 +957,7 @@ class SystemSettings(private val vsh: Vsh) : ISettingsCategories(vsh) {
             }
 
             cat.content.add(createItems)
+            if (customCategories.content.isNotEmpty()) cat.content.add(customCategories)
             if (customFolders.content.isNotEmpty()) cat.content.add(customFolders)
             if (launchItems.content.isNotEmpty()) cat.content.add(launchItems)
             if (builtInNodes.content.isNotEmpty()) cat.content.add(builtInNodes)

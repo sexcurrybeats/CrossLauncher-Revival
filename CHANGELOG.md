@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.12.0-alpha2 prerelease
+
+### Highlights
+
+- added custom top-level categories
+- improved the on-screen Options hint panel alignment and timing
+- custom file and ROM launch items now also show the Options hint
+- XTF exports now exclude file and ROM launch items while still carrying shell-level theme data, nodes, and web links
+
+### Custom categories
+
+- users can create custom top-level categories from Manage Custom Items
+- file and ROM launch items can now target a selected category instead of always landing in Game
+- deleting a custom category safely rehomes its contents back to Apps
+
+### XTF behavior
+
+- XTF is now a cleaner theme-sharing lane
+- exported packages keep shell settings and theme-related state
+- exported packages no longer carry file and ROM launcher shortcuts between devices
+
+### UX polish
+
+- the triangle Options hint is measured and centered more cleanly
+- the hint stays visible longer
+
+
 ## 0.12.0-alpha1 prerelease
 
 ### Highlights

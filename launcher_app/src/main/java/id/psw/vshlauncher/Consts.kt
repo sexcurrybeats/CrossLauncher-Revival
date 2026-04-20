@@ -23,9 +23,9 @@ object Consts {
 object PrefEntry{
     /** Boolean, Display Wave Wallpaper as internal layer, for use with  */
     const val USES_INTERNAL_WAVE_LAYER: String = "/crosslauncher/wave/beat_angel_escalayer"
-    /** Int, shell layout mode */
+    /** Int (0 = PS3, 1 = PSP, 2 = Bravia, 3 = PSX) */
     const val MENU_LAYOUT = "/crosslauncher/xmbview/layout"
-    /** Int, controller glyph style */
+    /** Int (0 = PlayStation, 1 = Xbox, 2 = Nintendo, 3 = Android) */
     const val BUTTON_DISPLAY_TYPE = "/crosslauncher/button"
     /** Boolean */
     const val DISABLE_EPILEPSY_WARNING = "/crosslauncher/coldboot/skipEpilepsyWarning"
@@ -142,6 +142,8 @@ object PrefEntry{
 
     /** String, Custom Nodes */
     const val CUSTOM_NODES = "/crosslauncher/custom/nodes"
+    /** String, Custom top-level categories */
+    const val CUSTOM_CATEGORIES = "/crosslauncher/custom/categories"
     /** String, Custom URL/deep-link launch items */
     const val CUSTOM_LAUNCH_ITEMS = "/crosslauncher/custom/launchItems"
     /** String, Per-node launch target overrides for configurable built-in nodes */

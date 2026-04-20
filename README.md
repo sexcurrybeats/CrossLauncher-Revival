@@ -108,7 +108,7 @@ See:
 
 Current prerelease notes:
 
-- [v0.12.0-alpha1 release notes](./RELEASE_NOTES_0.12.0-alpha1.md)
+- [v0.12.0-alpha2 release notes](./RELEASE_NOTES_0.12.0-alpha2.md)
 
 Issue reporting guidance:
 

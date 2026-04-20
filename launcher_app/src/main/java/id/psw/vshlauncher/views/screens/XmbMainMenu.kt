@@ -961,14 +961,16 @@ class XmbMainMenu(view : XmbView) : XmbScreen(view)  {
 
     private fun updateAppOptionsHintState() {
         val hoveredItem = context.vsh.hoveredItem
-        if (hoveredItem !is XmbAppItem || widgets.sideMenu.isDisplayed) {
+        val canShowHint = hoveredItem is XmbAppItem || hoveredItem is XmbCustomLaunchItem
+        if (!canShowHint || widgets.sideMenu.isDisplayed) {
             appOptionsHintItemId = ""
             appOptionsHintStartedAt = 0.0f
             return
         }
 
-        if (hoveredItem.id != appOptionsHintItemId) {
-            appOptionsHintItemId = hoveredItem.id
+        val hintItem = hoveredItem ?: return
+        if (hintItem.id != appOptionsHintItemId) {
+            appOptionsHintItemId = hintItem.id
             appOptionsHintStartedAt = currentTime
         }
     }
@@ -979,10 +981,10 @@ class XmbMainMenu(view : XmbView) : XmbScreen(view)  {
 
         val elapsed = currentTime - appOptionsHintStartedAt
         val alphaFactor = when {
-            elapsed < 0.5f -> 0.0f
-            elapsed < 0.72f -> ((elapsed - 0.5f) / 0.22f).coerceIn(0.0f, 1.0f)
-            elapsed < 3.25f -> 1.0f
-            elapsed < 3.6f -> (1.0f - ((elapsed - 3.25f) / 0.35f)).coerceIn(0.0f, 1.0f)
+            elapsed < 0.4f -> 0.0f
+            elapsed < 0.62f -> ((elapsed - 0.4f) / 0.22f).coerceIn(0.0f, 1.0f)
+            elapsed < 7.6f -> 1.0f
+            elapsed < 8.0f -> (1.0f - ((elapsed - 7.6f) / 0.4f)).coerceIn(0.0f, 1.0f)
             else -> 0.0f
         }
 
@@ -1003,16 +1005,26 @@ class XmbMainMenu(view : XmbView) : XmbScreen(view)  {
         appHintBgPaint.color = Color.argb((alphaFactor * 148.0f).roundToInt().coerceIn(0, 255), 58, 62, 68)
         ctx.drawRoundRect(tmpRectF, psp?.s(2.6f) ?: 6.0f, psp?.s(2.6f) ?: 6.0f, appHintBgPaint)
 
-        val triLeft = panelLeft + (psp?.s(6.4f) ?: 15.0f)
-        val hintTextBaseline = tmpRectF.centerY() + (psp?.s(1.6f) ?: 3.5f)
         val triChar = context.vsh.M.gamepadUi.getGamepadChar(PadKey.Triangle).toString()
         appHintButtonPaint.textSize = psp?.s(9.1f) ?: 18.0f
         appHintButtonPaint.color = Color.argb((alphaFactor * 238.0f).roundToInt().coerceIn(0, 255), 250, 252, 255)
+        appHintTextPaint.textSize = psp?.s(7.6f) ?: 16.0f
+        val buttonMetrics = appHintButtonPaint.fontMetrics
+        val textMetrics = appHintTextPaint.fontMetrics
+        val lineTop = minOf(buttonMetrics.ascent, textMetrics.ascent)
+        val lineBottom = maxOf(buttonMetrics.descent, textMetrics.descent)
+        val hintTextBaseline =
+            tmpRectF.centerY() - ((lineTop + lineBottom) * 0.5f) + (psp?.s(3.8f) ?: 8.0f)
+        val gap = psp?.s(4.8f) ?: 10.0f
+        val triWidth = appHintButtonPaint.measureText(triChar)
+        val optionsLabel = "Options"
+        val optionsWidth = appHintTextPaint.measureText(optionsLabel)
+        val totalWidth = triWidth + gap + optionsWidth
+        val triLeft = tmpRectF.centerX() - (totalWidth * 0.5f)
         ctx.drawText(triChar, triLeft, hintTextBaseline, appHintButtonPaint, -0.5f)
 
-        appHintTextPaint.textSize = psp?.s(7.6f) ?: 16.0f
         appHintTextPaint.color = Color.argb(alpha, 250, 252, 255)
-        ctx.drawText("Options", panelLeft + (psp?.s(17.4f) ?: 37.0f), hintTextBaseline, appHintTextPaint, -0.5f)
+        ctx.drawText(optionsLabel, triLeft + triWidth + gap, hintTextBaseline, appHintTextPaint, -0.5f)
     }
     
     private fun shouldPlayVideo(item:XmbItem, isSelected : Boolean) : Boolean {
