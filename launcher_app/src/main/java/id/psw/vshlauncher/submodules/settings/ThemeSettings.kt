@@ -620,9 +620,16 @@ class ThemeSettings(private val vsh: Vsh) : ISettingsCategories(vsh) {
         })
         items.add(XmbMenuItem.XmbMenuItemLambda({ vsh.getString(R.string.dlg_info_reset) }, { false }, 1) {
             vsh.M.iconManager.setUserIcon(type, id, null)
+            refreshShellIcons()
             vsh.postNotification(R.drawable.category_setting, vsh.getString(R.string.common_success), id)
         })
         return items
+    }
+
+    private fun refreshShellIcons() {
+        vsh.M.bmp.releaseAll()
+        vsh.M.apps.reloadAppList()
+        vsh.xmbView?.invalidate()
     }
 
     fun onIconPicked(uri: android.net.Uri) {
@@ -637,6 +644,7 @@ class ThemeSettings(private val vsh: Vsh) : ISettingsCategories(vsh) {
                 }
             }
             vsh.M.iconManager.setUserIcon(type, id, tempFile)
+            refreshShellIcons()
             tempFile.delete()
             vsh.postNotification(R.drawable.category_setting, vsh.getString(R.string.common_success), id)
         } catch(e: Exception) {

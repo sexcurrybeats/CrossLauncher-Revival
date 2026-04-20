@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.12.0-alpha4 prerelease
+
+### Highlights
+
+- added a PSP-style text shadow pass across the handheld shell text lane
+- shell icon changes from `Customize Shell Icons` now refresh live without requiring a launcher restart
+- default category, node, and settings fallback icons now have a softer built-in shadow treatment
+- handheld battery readability was tightened for both the default battery and custom battery glyph lanes
+
+### Visual polish
+
+- shell text is easier to read against bright wave and backdrop content
+- default icon shadows were tuned to sit farther behind the visible icon art instead of hugging padded bitmap bounds
+- the default battery now uses a cleaner grey backdrop treatment
+- custom battery glyph positioning and shadow behavior were tightened further
+
 ## 0.12.0-alpha3 prerelease
 
 ### Highlights

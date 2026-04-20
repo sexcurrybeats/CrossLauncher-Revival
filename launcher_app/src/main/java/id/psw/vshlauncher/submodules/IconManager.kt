@@ -3,6 +3,11 @@ package id.psw.vshlauncher.submodules
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
+import android.graphics.Rect
 import android.net.Uri
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
@@ -186,7 +191,7 @@ class IconManager(private val vsh: Vsh) : IVshSubmodule {
     private fun loadResolvedIcon(id: String, type: IconType, fallbackRes: Int): Bitmap {
         loadUserIconBitmap(type, id)?.let { return it }
         loadThemeIconBitmap(type, id)?.let { return it }
-        return loadIcon(id, type, fallbackRes)
+        return applyDefaultShellShadow(loadIcon(id, type, fallbackRes))
     }
 
     private fun loadUserIconBitmap(type: IconType, id: String): Bitmap? {
@@ -406,6 +411,64 @@ class IconManager(private val vsh: Vsh) : IVshSubmodule {
         if (scaled != src) scaled.recycle()
         src.recycle()
 
+        return out
+    }
+
+    private fun findOpaqueBounds(src: Bitmap): Rect? {
+        var left = src.width
+        var top = src.height
+        var right = -1
+        var bottom = -1
+
+        for (y in 0 until src.height) {
+            for (x in 0 until src.width) {
+                if ((src.getPixel(x, y) ushr 24) != 0) {
+                    if (x < left) left = x
+                    if (y < top) top = y
+                    if (x > right) right = x
+                    if (y > bottom) bottom = y
+                }
+            }
+        }
+
+        if (right < left || bottom < top) return null
+        return Rect(left, top, right + 1, bottom + 1)
+    }
+
+    private fun applyDefaultShellShadow(src: Bitmap): Bitmap {
+        val out = Bitmap.createBitmap(src.width, src.height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(out)
+        val shadowPaint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG).apply {
+            colorFilter = PorterDuffColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
+        }
+        val opaqueBounds = findOpaqueBounds(src)
+        val shadowBitmap = if (opaqueBounds != null) {
+            Bitmap.createBitmap(src, opaqueBounds.left, opaqueBounds.top, opaqueBounds.width(), opaqueBounds.height())
+        } else {
+            src
+        }
+        val shadowLeft = opaqueBounds?.left?.toFloat() ?: 0.0f
+        val shadowTop = opaqueBounds?.top?.toFloat() ?: 0.0f
+        val passes = arrayOf(
+            floatArrayOf(4.0f, -1.0f, 2.0f),
+            floatArrayOf(5.0f, 0.0f, 4.0f),
+            floatArrayOf(6.0f, 1.0f, 6.0f),
+            floatArrayOf(7.0f, 2.0f, 8.0f),
+            floatArrayOf(8.0f, 3.0f, 10.0f),
+            floatArrayOf(9.0f, 4.0f, 8.0f),
+            floatArrayOf(10.0f, 5.0f, 6.0f),
+            floatArrayOf(11.0f, 6.0f, 4.0f),
+            floatArrayOf(12.0f, 7.0f, 2.0f)
+        )
+
+        for (pass in passes) {
+            shadowPaint.alpha = pass[2].toInt()
+            canvas.drawBitmap(shadowBitmap, shadowLeft + pass[0], shadowTop + pass[1], shadowPaint)
+        }
+
+        canvas.drawBitmap(src, 0.0f, 0.0f, null)
+        if (shadowBitmap != src) shadowBitmap.recycle()
+        src.recycle()
         return out
     }
 }

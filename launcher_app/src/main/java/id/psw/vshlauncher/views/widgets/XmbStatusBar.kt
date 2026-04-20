@@ -5,6 +5,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.graphics.RectF
 import android.text.format.DateFormat
 import id.psw.vshlauncher.FColor
@@ -51,7 +53,23 @@ class XmbStatusBar(view: XmbView) : XmbWidget(view) {
         strokeWidth = 3.0f
         color = Color.WHITE
     }
+    private val statusShadowFillPaint : Paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+        color = Color.argb(96, 0, 0, 0)
+    }
+    private val statusShadowOutlinePaint : Paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.STROKE
+        strokeWidth = 3.0f
+        color = Color.argb(68, 0, 0, 0)
+    }
+    private val defaultBatteryBackdropPaint : Paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+        color = Color.argb(88, 96, 96, 100)
+    }
     private val bitmapPaint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
+    private val batteryGlyphShadowPaint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG).apply {
+        colorFilter = PorterDuffColorFilter(Color.argb(86, 0, 0, 0), PorterDuff.Mode.SRC_IN)
+    }
 
     private var baseDefRect = RectF()
     private var tmpRectF = RectF()
@@ -190,6 +208,17 @@ class XmbStatusBar(view: XmbView) : XmbWidget(view) {
         }
     }
 
+    private fun drawBatteryGlyphShadow(ctx: Canvas, left: Float, top: Float, right: Float, bottom: Float): Boolean {
+        ensureBatteryGlyphOverride()
+        val ref = batteryGlyphRef ?: return false
+        if (!ref.isLoaded) return false
+        val shadowDx = (right - left) * 0.038f
+        val shadowDy = (bottom - top) * 0.07f
+        tmpRectF.set(left + shadowDx, top + shadowDy, right + shadowDx, bottom + shadowDy)
+        ctx.drawBitmap(ref.bitmap, null, tmpRectF, batteryGlyphShadowPaint)
+        return true
+    }
+
     private fun drawBatteryGlyphOverride(ctx: Canvas, left: Float, top: Float, right: Float, bottom: Float): Boolean {
         ensureBatteryGlyphOverride()
         val ref = batteryGlyphRef ?: return false
@@ -245,6 +274,45 @@ class XmbStatusBar(view: XmbView) : XmbWidget(view) {
         }
     }
 
+    private fun drawBatteryChargingBolt(
+        ctx: Canvas,
+        innerLeft: Float,
+        innerTop: Float,
+        innerRight: Float,
+        innerBottom: Float,
+        shellHeight: Float,
+        color: Int
+    ) {
+        val centerY = (innerTop + innerBottom) / 2.0f
+        val boltMidX = (innerLeft + innerRight) / 2.0f
+        val boltTop = innerTop - (shellHeight * 0.025f)
+        val boltBottom = innerBottom + (shellHeight * 0.025f)
+
+        tmpPath.reset()
+        tmpPath.moveTo(boltMidX - (shellHeight * 0.09f), boltTop)
+        tmpPath.lineTo(boltMidX + (shellHeight * 0.025f), boltTop)
+        tmpPath.lineTo(boltMidX - (shellHeight * 0.035f), centerY - (shellHeight * 0.01f))
+        tmpPath.lineTo(boltMidX + (shellHeight * 0.1f), centerY - (shellHeight * 0.01f))
+        tmpPath.lineTo(boltMidX - (shellHeight * 0.065f), boltBottom)
+        tmpPath.lineTo(boltMidX - (shellHeight * 0.015f), centerY + (shellHeight * 0.03f))
+        tmpPath.lineTo(boltMidX - (shellHeight * 0.12f), centerY + (shellHeight * 0.03f))
+        tmpPath.close()
+        statusFillPaint.color = color
+        ctx.drawPath(tmpPath, statusFillPaint)
+    }
+
+    private fun drawDefaultBatteryBackdrop(
+        ctx: Canvas,
+        shellLeft: Float,
+        shellTop: Float,
+        shellRight: Float,
+        shellBottom: Float
+    ) {
+        val radius = (shellBottom - shellTop) * 0.5f
+        tmpRectF.set(shellLeft, shellTop, shellRight, shellBottom)
+        ctx.drawRoundRect(tmpRectF, radius, defaultBatteryBackdropPaint)
+    }
+
     private fun drawPspBatteryIcon(ctx: Canvas, right: Float, centerY: Float, shellWidth: Float, shellHeight: Float) {
         val batteryLevel = context.vsh.getBatteryLevel().coerceIn(0.0f, 1.0f)
         val charging = context.vsh.isBatteryCharging()
@@ -274,6 +342,12 @@ class XmbStatusBar(view: XmbView) : XmbWidget(view) {
         val innerRight = shellRight - innerPadX
         val innerBottom = shellBottom - innerPadY
 
+        if (hasCustomGlyph) {
+            drawBatteryGlyphShadow(ctx, shellLeft, shellTop, shellRight, shellBottom)
+        } else {
+            drawDefaultBatteryBackdrop(ctx, shellLeft, shellTop, shellRight, shellBottom)
+        }
+
         val segmentColor = if (hasCustomGlyph) Color.argb(218, 255, 255, 255) else fillColor
         drawBatterySegments(ctx, shellLeft, shellTop, shellRight, shellBottom, batteryLevel, segmentColor, hasCustomGlyph)
 
@@ -286,21 +360,8 @@ class XmbStatusBar(view: XmbView) : XmbWidget(view) {
             ctx.drawRoundRect(tmpRectF, radius, radius, statusOutlinePaint)
         }
 
-        if (charging) {
-            tmpPath.reset()
-            val boltMidX = (innerLeft + innerRight) / 2.0f
-            val boltTop = innerTop - (shellHeight * 0.025f)
-            val boltBottom = innerBottom + (shellHeight * 0.025f)
-            tmpPath.moveTo(boltMidX - (shellHeight * 0.09f), boltTop)
-            tmpPath.lineTo(boltMidX + (shellHeight * 0.025f), boltTop)
-            tmpPath.lineTo(boltMidX - (shellHeight * 0.035f), centerY - (shellHeight * 0.01f))
-            tmpPath.lineTo(boltMidX + (shellHeight * 0.1f), centerY - (shellHeight * 0.01f))
-            tmpPath.lineTo(boltMidX - (shellHeight * 0.065f), boltBottom)
-            tmpPath.lineTo(boltMidX - (shellHeight * 0.015f), centerY + (shellHeight * 0.03f))
-            tmpPath.lineTo(boltMidX - (shellHeight * 0.12f), centerY + (shellHeight * 0.03f))
-            tmpPath.close()
-            statusFillPaint.color = Color.argb(196, 255, 255, 255)
-            ctx.drawPath(tmpPath, statusFillPaint)
+        if (charging && !hasCustomGlyph) {
+            drawBatteryChargingBolt(ctx, innerLeft, innerTop, innerRight, innerBottom, shellHeight, Color.argb(196, 255, 255, 255))
         }
     }
 
@@ -362,12 +423,15 @@ class XmbStatusBar(view: XmbView) : XmbWidget(view) {
         }
 
         val textMetrics = statusTextPaint.fontMetrics
-        val batteryHeight = ((textMetrics.descent - textMetrics.ascent) * 0.76f).coerceIn(pspS(9.1f), pspS(11.6f))
+        val hasCustomGlyph = hasBatteryGlyphOverride()
+        val batteryHeightBase = ((textMetrics.descent - textMetrics.ascent) * 0.76f).coerceIn(pspS(9.1f), pspS(11.6f))
+        val batteryHeight = if (hasCustomGlyph) batteryHeightBase * 1.14f else batteryHeightBase
         val batteryWidth = batteryHeight * 2.15f
         val batteryGap = pspS(5.0f)
         val batteryRight = scaling.viewport.right - pspS(4.75f)
         val textRight = batteryRight - if (pspShowBattery) batteryWidth + batteryGap else 0.0f
-        val batteryCenterY = baselineY + ((textMetrics.ascent + textMetrics.descent) / 2.0f) + pspS(6.05f)
+        val batteryCenterYBase = baselineY + ((textMetrics.ascent + textMetrics.descent) / 2.0f) + pspS(6.05f)
+        val batteryCenterY = batteryCenterYBase + if (hasCustomGlyph) pspS(0.15f) else 0.0f + 3.0f
 
         ctx.drawText(getStatusText(), textRight, baselineY, statusTextPaint, 0.5f)
 

@@ -2,6 +2,7 @@ package id.psw.vshlauncher.views
 
 import android.graphics.*
 import android.os.Build
+import android.text.TextPaint
 import id.psw.vshlauncher.Consts
 import id.psw.vshlauncher.FittingMode
 import id.psw.vshlauncher.Vsh
@@ -49,6 +50,24 @@ fun List<XmbItem>.filterBySearch(vsh: Vsh): List<XmbItem> {
 
 fun Paint.removeShadowLayer() = setShadowLayer(0.0f, 0.0f, 0.0f, Color.TRANSPARENT)
 
+object XmbTextShadowStyle {
+    const val DX = 4.0f
+    const val DY = 4.0f
+    const val RADIUS = 1.8f
+    val COLOR: Int = Color.argb(112, 0, 0, 0)
+}
+
+private fun Paint.copyForTextShadow(): Paint {
+    val copy = if (this is TextPaint) TextPaint(this) else Paint(this)
+    copy.setShadowLayer(
+        XmbTextShadowStyle.RADIUS,
+        XmbTextShadowStyle.DX,
+        XmbTextShadowStyle.DY,
+        XmbTextShadowStyle.COLOR
+    )
+    return copy
+}
+
 private var extCanvasDrawTextRectFBuffer = RectF()
 private var extCanvasDrawTextRectBuffer = Rect()
 
@@ -57,7 +76,7 @@ fun Canvas.drawText(text:String, x:Float, y:Float, paint: Paint, yOffset:Float, 
         paint.getTextBounds(text, 0, text.length, extCanvasDrawTextRectBuffer)
         extCanvasDrawTextRectBuffer.height().toFloat()
     }else paint.textSize
-    drawText(text, x, y + (yOffset * h), paint)
+    drawText(text, x, y + (yOffset * h), paint.copyForTextShadow())
 }
 
 fun Canvas.drawRoundRect(base:RectF, r:Float, paint:Paint){

@@ -44,8 +44,8 @@ android {
         applicationId = "id.psw.vshlauncher"
         minSdk = 19
         targetSdk = 34
-        versionCode = 6
-        versionName = "0.12.0-alpha3"
+        versionCode = 7
+        versionName = "0.12.0-alpha4"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
 
