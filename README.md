@@ -87,6 +87,26 @@ Current XTF support includes:
 
 New XTF exports are focused on shell-level customization. They do not export per-app or per-game icon/backdrop media.
 
+### Supported theme assets
+
+- shell/static icons use image formats such as `png`, `webp`, `jpg`, and `jpeg`
+- animated icons use `gif`, `webp`, or `apng`
+- animated icons should stay at or under `4 MB`
+- menu sound overrides use `ogg`, `wav`, or `mp3`
+- coldboot images use normal image formats and coldboot audio is imported as standard audio
+- gameboot supports static or animated visual media plus standard audio imports
+- battery glyph overrides use normal image formats
+
+Common internal asset names you will see in exported/imported theme content:
+
+- `ICON0`: static icon
+- `ICON1`: animated icon
+- `PIC1`: backdrop
+- `PIC0`: overlay
+- `SND0`: back sound
+
+For deeper notes on XTF behavior and compatibility, see [XTF compatibility](./XTF_COMPATIBILITY.md).
+
 ### Making and sharing a theme
 
 If you want to make a theme pack for other people to use:

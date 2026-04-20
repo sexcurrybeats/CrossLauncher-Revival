@@ -23,6 +23,41 @@ It is meant for moving launcher customization between installs or devices that a
 - theme/font references
 - app-owned active theme/font assets when available
 
+## Supported shell asset formats
+
+The launcher currently expects these shell-level asset lanes:
+
+- `ICON0`: static icon
+  - formats: `png`, `webp`, `jpg`, `jpeg`
+- `ICON1`: animated icon
+  - formats: `gif`, `webp`, `apng`
+  - practical limit: `4 MB` max
+- `PIC1`: backdrop
+  - formats: standard image formats
+- `PIC0`: overlay
+  - formats: standard image formats
+- `PIC1_P`: portrait backdrop
+  - formats: standard image formats
+- `PIC0_P`: portrait overlay
+  - formats: standard image formats
+- `SND0`: per-item back sound
+  - formats: supported sound formats such as `aac`, `ogg`, `mp3`, `wav`, `mid`, `midi`
+
+Shell resource override lanes exposed through Settings currently use:
+
+- shell icon overrides: `png`, `webp`, `jpg`, `jpeg`
+- menu sound overrides: `ogg`, `wav`, `mp3`
+- coldboot image: standard image formats
+- coldboot audio: standard audio import, with a short-duration expectation
+- gameboot image/animation: static image or animated `gif` / `webp` / `apng`
+- gameboot audio: standard audio import
+- battery glyph: standard image formats
+
+Animated icon note:
+
+- `mp4` is not part of the current animated icon import/export path
+- if an animated icon is too large, keep the same motion but reduce size or convert it to a lighter `webp`
+
 ## What new XTF exports do not carry
 
 New exports no longer include per-app or per-game icon/backdrop media.
